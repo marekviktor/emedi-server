@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "play": "nodemon postgraphile.js"
+  },
+  "author": "marekviktor",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.3",
+    "express-graphql": "^0.12.0",
+    "nodemon": "^2.0.15",
+    "pg": "^8.7.3",
+    "postgraphile": "^4.12.9",
+    "postgraphile-plugin-connection-filter": "^2.2.2",
+    "socket.io": "^4.4.1"
+  }
+}

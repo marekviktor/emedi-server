@@ -1,0 +1,5719 @@
+"""The root query type which gives access points into the data universe."""
+type Query implements Node {
+  """
+  Exposes the root query type nested one level down. This is helpful for Relay 1
+  which can only query top level fields if they are in a particular form.
+  """
+  query: Query!
+
+  """
+  The root query type must be a `Node` to work well with Relay 1 mutations. This just resolves to `query`.
+  """
+  nodeId: ID!
+
+  """Fetches an object given its globally unique `ID`."""
+  node(
+    """The globally unique `ID`."""
+    nodeId: ID!
+  ): Node
+
+  """Reads and enables pagination through a set of `Admin`."""
+  allAdmins(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Admin`."""
+    orderBy: [AdminsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: AdminCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AdminFilter
+  ): AdminsConnection
+
+  """Reads and enables pagination through a set of `Ambulance`."""
+  allAmbulances(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Ambulance`."""
+    orderBy: [AmbulancesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: AmbulanceCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AmbulanceFilter
+  ): AmbulancesConnection
+
+  """Reads and enables pagination through a set of `Authorization`."""
+  allAuthorizations(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Authorization`."""
+    orderBy: [AuthorizationsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: AuthorizationCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AuthorizationFilter
+  ): AuthorizationsConnection
+
+  """Reads and enables pagination through a set of `BloodType`."""
+  allBloodTypes(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `BloodType`."""
+    orderBy: [BloodTypesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: BloodTypeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: BloodTypeFilter
+  ): BloodTypesConnection
+
+  """Reads and enables pagination through a set of `Diagnosis`."""
+  allDiagnoses(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Diagnosis`."""
+    orderBy: [DiagnosesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DiagnosisCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DiagnosisFilter
+  ): DiagnosesConnection
+
+  """Reads and enables pagination through a set of `DiagnosisCategory`."""
+  allDiagnosisCategories(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `DiagnosisCategory`."""
+    orderBy: [DiagnosisCategoriesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DiagnosisCategoryCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DiagnosisCategoryFilter
+  ): DiagnosisCategoriesConnection
+
+  """Reads and enables pagination through a set of `DiagnosisGroup`."""
+  allDiagnosisGroups(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `DiagnosisGroup`."""
+    orderBy: [DiagnosisGroupsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DiagnosisGroupCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DiagnosisGroupFilter
+  ): DiagnosisGroupsConnection
+
+  """Reads and enables pagination through a set of `InsuranceCompany`."""
+  allInsuranceCompanies(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `InsuranceCompany`."""
+    orderBy: [InsuranceCompaniesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: InsuranceCompanyCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: InsuranceCompanyFilter
+  ): InsuranceCompaniesConnection
+
+  """Reads and enables pagination through a set of `Medicament`."""
+  allMedicaments(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Medicament`."""
+    orderBy: [MedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MedicamentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MedicamentFilter
+  ): MedicamentsConnection
+
+  """Reads and enables pagination through a set of `Meeting`."""
+  allMeetings(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MeetingCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MeetingFilter
+  ): MeetingsConnection
+
+  """Reads and enables pagination through a set of `User`."""
+  allUsers(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFilter
+  ): UsersConnection
+
+  """Reads and enables pagination through a set of `UserDiagnosis`."""
+  allUserDiagnoses(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UserDiagnosis`."""
+    orderBy: [UserDiagnosesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserDiagnosisCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserDiagnosisFilter
+  ): UserDiagnosesConnection
+
+  """Reads and enables pagination through a set of `UserMedicament`."""
+  allUserMedicaments(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UserMedicament`."""
+    orderBy: [UserMedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMedicamentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMedicamentFilter
+  ): UserMedicamentsConnection
+
+  """Reads and enables pagination through a set of `UserMedicamentTime`."""
+  allUserMedicamentTimes(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UserMedicamentTime`."""
+    orderBy: [UserMedicamentTimesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMedicamentTimeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMedicamentTimeFilter
+  ): UserMedicamentTimesConnection
+  adminByAdminId(adminId: String!): Admin
+  ambulanceByAmbulanceId(ambulanceId: String!): Ambulance
+  authorizationByAuthorizationId(authorizationId: String!): Authorization
+  bloodTypeByBloodTypeId(bloodTypeId: Int!): BloodType
+  diagnosisByDiagnosisId(diagnosisId: String!): Diagnosis
+  diagnosisCategoryByDiagnosisCategoryId(diagnosisCategoryId: String!): DiagnosisCategory
+  diagnosisGroupByDiagnosisGroupId(diagnosisGroupId: String!): DiagnosisGroup
+  insuranceCompanyByInsuranceCompanyId(insuranceCompanyId: Int!): InsuranceCompany
+  medicamentByMedicamentId(medicamentId: String!): Medicament
+  meetingByMeetingId(meetingId: Int!): Meeting
+  userByUserId(userId: String!): User
+  userMedicamentByUserMedicamentId(userMedicamentId: Int!): UserMedicament
+
+  """Reads a single `Admin` using its globally unique `ID`."""
+  admin(
+    """The globally unique `ID` to be used in selecting a single `Admin`."""
+    nodeId: ID!
+  ): Admin
+
+  """Reads a single `Ambulance` using its globally unique `ID`."""
+  ambulance(
+    """The globally unique `ID` to be used in selecting a single `Ambulance`."""
+    nodeId: ID!
+  ): Ambulance
+
+  """Reads a single `Authorization` using its globally unique `ID`."""
+  authorization(
+    """
+    The globally unique `ID` to be used in selecting a single `Authorization`.
+    """
+    nodeId: ID!
+  ): Authorization
+
+  """Reads a single `BloodType` using its globally unique `ID`."""
+  bloodType(
+    """The globally unique `ID` to be used in selecting a single `BloodType`."""
+    nodeId: ID!
+  ): BloodType
+
+  """Reads a single `Diagnosis` using its globally unique `ID`."""
+  diagnosis(
+    """The globally unique `ID` to be used in selecting a single `Diagnosis`."""
+    nodeId: ID!
+  ): Diagnosis
+
+  """Reads a single `DiagnosisCategory` using its globally unique `ID`."""
+  diagnosisCategory(
+    """
+    The globally unique `ID` to be used in selecting a single `DiagnosisCategory`.
+    """
+    nodeId: ID!
+  ): DiagnosisCategory
+
+  """Reads a single `DiagnosisGroup` using its globally unique `ID`."""
+  diagnosisGroup(
+    """
+    The globally unique `ID` to be used in selecting a single `DiagnosisGroup`.
+    """
+    nodeId: ID!
+  ): DiagnosisGroup
+
+  """Reads a single `InsuranceCompany` using its globally unique `ID`."""
+  insuranceCompany(
+    """
+    The globally unique `ID` to be used in selecting a single `InsuranceCompany`.
+    """
+    nodeId: ID!
+  ): InsuranceCompany
+
+  """Reads a single `Medicament` using its globally unique `ID`."""
+  medicament(
+    """
+    The globally unique `ID` to be used in selecting a single `Medicament`.
+    """
+    nodeId: ID!
+  ): Medicament
+
+  """Reads a single `Meeting` using its globally unique `ID`."""
+  meeting(
+    """The globally unique `ID` to be used in selecting a single `Meeting`."""
+    nodeId: ID!
+  ): Meeting
+
+  """Reads a single `User` using its globally unique `ID`."""
+  user(
+    """The globally unique `ID` to be used in selecting a single `User`."""
+    nodeId: ID!
+  ): User
+
+  """Reads a single `UserMedicament` using its globally unique `ID`."""
+  userMedicament(
+    """
+    The globally unique `ID` to be used in selecting a single `UserMedicament`.
+    """
+    nodeId: ID!
+  ): UserMedicament
+}
+
+"""An object with a globally unique `ID`."""
+interface Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+}
+
+"""A connection to a list of `Admin` values."""
+type AdminsConnection {
+  """A list of `Admin` objects."""
+  nodes: [Admin]!
+
+  """
+  A list of edges which contains the `Admin` and cursor to aid in pagination.
+  """
+  edges: [AdminsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Admin` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Admin implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  adminId: String!
+  firstName: String
+  lastName: String
+  authorizationId: String!
+  ambulanceId: String!
+  adminVerified: Boolean!
+  registrationDate: Date!
+  email: String!
+  phone: String!
+  hashedPassword: String
+  lastLogin: Date
+
+  """Reads a single `Authorization` that is related to this `Admin`."""
+  authorizationByAuthorizationId: Authorization
+
+  """Reads a single `Ambulance` that is related to this `Admin`."""
+  ambulanceByAmbulanceId: Ambulance
+
+  """Reads and enables pagination through a set of `Meeting`."""
+  meetingsByAdminId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MeetingCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MeetingFilter
+  ): MeetingsConnection!
+}
+
+"""The day, does not include a time."""
+scalar Date
+
+type Authorization implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  authorizationId: String!
+  name: String!
+  all: Boolean!
+  prescription: Boolean!
+
+  """Reads and enables pagination through a set of `Admin`."""
+  adminsByAuthorizationId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Admin`."""
+    orderBy: [AdminsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: AdminCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AdminFilter
+  ): AdminsConnection!
+}
+
+"""A location in a connection that can be used for resuming pagination."""
+scalar Cursor
+
+"""Methods to use when ordering `Admin`."""
+enum AdminsOrderBy {
+  NATURAL
+  ADMIN_ID_ASC
+  ADMIN_ID_DESC
+  FIRST_NAME_ASC
+  FIRST_NAME_DESC
+  LAST_NAME_ASC
+  LAST_NAME_DESC
+  AUTHORIZATION_ID_ASC
+  AUTHORIZATION_ID_DESC
+  AMBULANCE_ID_ASC
+  AMBULANCE_ID_DESC
+  ADMIN_VERIFIED_ASC
+  ADMIN_VERIFIED_DESC
+  REGISTRATION_DATE_ASC
+  REGISTRATION_DATE_DESC
+  EMAIL_ASC
+  EMAIL_DESC
+  PHONE_ASC
+  PHONE_DESC
+  HASHED_PASSWORD_ASC
+  HASHED_PASSWORD_DESC
+  LAST_LOGIN_ASC
+  LAST_LOGIN_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Admin` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input AdminCondition {
+  """Checks for equality with the object’s `adminId` field."""
+  adminId: String
+
+  """Checks for equality with the object’s `firstName` field."""
+  firstName: String
+
+  """Checks for equality with the object’s `lastName` field."""
+  lastName: String
+
+  """Checks for equality with the object’s `authorizationId` field."""
+  authorizationId: String
+
+  """Checks for equality with the object’s `ambulanceId` field."""
+  ambulanceId: String
+
+  """Checks for equality with the object’s `adminVerified` field."""
+  adminVerified: Boolean
+
+  """Checks for equality with the object’s `registrationDate` field."""
+  registrationDate: Date
+
+  """Checks for equality with the object’s `email` field."""
+  email: String
+
+  """Checks for equality with the object’s `phone` field."""
+  phone: String
+
+  """Checks for equality with the object’s `hashedPassword` field."""
+  hashedPassword: String
+
+  """Checks for equality with the object’s `lastLogin` field."""
+  lastLogin: Date
+}
+
+"""
+A filter to be used against `Admin` object types. All fields are combined with a logical ‘and.’
+"""
+input AdminFilter {
+  """Filter by the object’s `adminId` field."""
+  adminId: StringFilter
+
+  """Filter by the object’s `firstName` field."""
+  firstName: StringFilter
+
+  """Filter by the object’s `lastName` field."""
+  lastName: StringFilter
+
+  """Filter by the object’s `authorizationId` field."""
+  authorizationId: StringFilter
+
+  """Filter by the object’s `ambulanceId` field."""
+  ambulanceId: StringFilter
+
+  """Filter by the object’s `adminVerified` field."""
+  adminVerified: BooleanFilter
+
+  """Filter by the object’s `registrationDate` field."""
+  registrationDate: DateFilter
+
+  """Filter by the object’s `email` field."""
+  email: StringFilter
+
+  """Filter by the object’s `phone` field."""
+  phone: StringFilter
+
+  """Filter by the object’s `hashedPassword` field."""
+  hashedPassword: StringFilter
+
+  """Filter by the object’s `lastLogin` field."""
+  lastLogin: DateFilter
+
+  """Checks for all expressions in this list."""
+  and: [AdminFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [AdminFilter!]
+
+  """Negates the expression."""
+  not: AdminFilter
+}
+
+"""
+A filter to be used against String fields. All fields are combined with a logical ‘and.’
+"""
+input StringFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: String
+
+  """Not equal to the specified value."""
+  notEqualTo: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: String
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: String
+
+  """Included in the specified list."""
+  in: [String!]
+
+  """Not included in the specified list."""
+  notIn: [String!]
+
+  """Less than the specified value."""
+  lessThan: String
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: String
+
+  """Greater than the specified value."""
+  greaterThan: String
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: String
+
+  """Contains the specified string (case-sensitive)."""
+  includes: String
+
+  """Does not contain the specified string (case-sensitive)."""
+  notIncludes: String
+
+  """Contains the specified string (case-insensitive)."""
+  includesInsensitive: String
+
+  """Does not contain the specified string (case-insensitive)."""
+  notIncludesInsensitive: String
+
+  """Starts with the specified string (case-sensitive)."""
+  startsWith: String
+
+  """Does not start with the specified string (case-sensitive)."""
+  notStartsWith: String
+
+  """Starts with the specified string (case-insensitive)."""
+  startsWithInsensitive: String
+
+  """Does not start with the specified string (case-insensitive)."""
+  notStartsWithInsensitive: String
+
+  """Ends with the specified string (case-sensitive)."""
+  endsWith: String
+
+  """Does not end with the specified string (case-sensitive)."""
+  notEndsWith: String
+
+  """Ends with the specified string (case-insensitive)."""
+  endsWithInsensitive: String
+
+  """Does not end with the specified string (case-insensitive)."""
+  notEndsWithInsensitive: String
+
+  """
+  Matches the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  like: String
+
+  """
+  Does not match the specified pattern (case-sensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLike: String
+
+  """
+  Matches the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  likeInsensitive: String
+
+  """
+  Does not match the specified pattern (case-insensitive). An underscore (_) matches any single character; a percent sign (%) matches any sequence of zero or more characters.
+  """
+  notLikeInsensitive: String
+
+  """Equal to the specified value (case-insensitive)."""
+  equalToInsensitive: String
+
+  """Not equal to the specified value (case-insensitive)."""
+  notEqualToInsensitive: String
+
+  """
+  Not equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  distinctFromInsensitive: String
+
+  """
+  Equal to the specified value, treating null like an ordinary value (case-insensitive).
+  """
+  notDistinctFromInsensitive: String
+
+  """Included in the specified list (case-insensitive)."""
+  inInsensitive: [String!]
+
+  """Not included in the specified list (case-insensitive)."""
+  notInInsensitive: [String!]
+
+  """Less than the specified value (case-insensitive)."""
+  lessThanInsensitive: String
+
+  """Less than or equal to the specified value (case-insensitive)."""
+  lessThanOrEqualToInsensitive: String
+
+  """Greater than the specified value (case-insensitive)."""
+  greaterThanInsensitive: String
+
+  """Greater than or equal to the specified value (case-insensitive)."""
+  greaterThanOrEqualToInsensitive: String
+}
+
+"""
+A filter to be used against Boolean fields. All fields are combined with a logical ‘and.’
+"""
+input BooleanFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Boolean
+
+  """Not equal to the specified value."""
+  notEqualTo: Boolean
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Boolean
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Boolean
+
+  """Included in the specified list."""
+  in: [Boolean!]
+
+  """Not included in the specified list."""
+  notIn: [Boolean!]
+
+  """Less than the specified value."""
+  lessThan: Boolean
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Boolean
+
+  """Greater than the specified value."""
+  greaterThan: Boolean
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Boolean
+}
+
+"""
+A filter to be used against Date fields. All fields are combined with a logical ‘and.’
+"""
+input DateFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Date
+
+  """Not equal to the specified value."""
+  notEqualTo: Date
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Date
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Date
+
+  """Included in the specified list."""
+  in: [Date!]
+
+  """Not included in the specified list."""
+  notIn: [Date!]
+
+  """Less than the specified value."""
+  lessThan: Date
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Date
+
+  """Greater than the specified value."""
+  greaterThan: Date
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Date
+}
+
+type Ambulance implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  ambulanceId: String!
+  name: String!
+  ico: String!
+  city: String!
+  street: String!
+  state: String!
+  suite: String!
+
+  """Reads and enables pagination through a set of `Admin`."""
+  adminsByAmbulanceId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Admin`."""
+    orderBy: [AdminsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: AdminCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: AdminFilter
+  ): AdminsConnection!
+}
+
+"""A connection to a list of `Meeting` values."""
+type MeetingsConnection {
+  """A list of `Meeting` objects."""
+  nodes: [Meeting]!
+
+  """
+  A list of edges which contains the `Meeting` and cursor to aid in pagination.
+  """
+  edges: [MeetingsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Meeting` you could get from the connection."""
+  totalCount: Int!
+}
+
+type Meeting implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  meetingId: Int!
+  meetingDate: Date!
+  note: String
+  userId: String!
+  adminId: String!
+
+  """Reads a single `User` that is related to this `Meeting`."""
+  userByUserId: User
+
+  """Reads a single `Admin` that is related to this `Meeting`."""
+  adminByAdminId: Admin
+}
+
+type User implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  userId: String!
+  foreName: String!
+  surName: String!
+  hashedIdentNumber: String
+  hashedInsuranceNumber: String
+  email: String
+  phone: String
+  birthdate: Date!
+  verified: Boolean!
+  insuranceCompanyId: Int!
+  hashedPassword: String!
+  lastLogin: Date
+  bloodTypeId: Int
+  rhD: Boolean
+
+  """Reads a single `InsuranceCompany` that is related to this `User`."""
+  insuranceCompanyByInsuranceCompanyId: InsuranceCompany
+
+  """Reads a single `BloodType` that is related to this `User`."""
+  bloodTypeByBloodTypeId: BloodType
+
+  """Reads and enables pagination through a set of `UserDiagnosis`."""
+  userDiagnosesByUserId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UserDiagnosis`."""
+    orderBy: [UserDiagnosesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserDiagnosisCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserDiagnosisFilter
+  ): UserDiagnosesConnection!
+
+  """Reads and enables pagination through a set of `UserMedicament`."""
+  userMedicamentsByUserId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UserMedicament`."""
+    orderBy: [UserMedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMedicamentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMedicamentFilter
+  ): UserMedicamentsConnection!
+
+  """Reads and enables pagination through a set of `Meeting`."""
+  meetingsByUserId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: MeetingCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: MeetingFilter
+  ): MeetingsConnection!
+}
+
+type InsuranceCompany implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  insuranceCompanyId: Int!
+  name: String!
+
+  """Reads and enables pagination through a set of `User`."""
+  usersByInsuranceCompanyId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFilter
+  ): UsersConnection!
+}
+
+"""A connection to a list of `User` values."""
+type UsersConnection {
+  """A list of `User` objects."""
+  nodes: [User]!
+
+  """
+  A list of edges which contains the `User` and cursor to aid in pagination.
+  """
+  edges: [UsersEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `User` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `User` edge in the connection."""
+type UsersEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `User` at the end of the edge."""
+  node: User
+}
+
+"""Information about pagination in a connection."""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: Cursor
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: Cursor
+}
+
+"""Methods to use when ordering `User`."""
+enum UsersOrderBy {
+  NATURAL
+  USER_ID_ASC
+  USER_ID_DESC
+  FORE_NAME_ASC
+  FORE_NAME_DESC
+  SUR_NAME_ASC
+  SUR_NAME_DESC
+  HASHED_IDENT_NUMBER_ASC
+  HASHED_IDENT_NUMBER_DESC
+  HASHED_INSURANCE_NUMBER_ASC
+  HASHED_INSURANCE_NUMBER_DESC
+  EMAIL_ASC
+  EMAIL_DESC
+  PHONE_ASC
+  PHONE_DESC
+  BIRTHDATE_ASC
+  BIRTHDATE_DESC
+  VERIFIED_ASC
+  VERIFIED_DESC
+  INSURANCE_COMPANY_ID_ASC
+  INSURANCE_COMPANY_ID_DESC
+  HASHED_PASSWORD_ASC
+  HASHED_PASSWORD_DESC
+  LAST_LOGIN_ASC
+  LAST_LOGIN_DESC
+  BLOOD_TYPE_ID_ASC
+  BLOOD_TYPE_ID_DESC
+  RH_D_ASC
+  RH_D_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `User` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input UserCondition {
+  """Checks for equality with the object’s `userId` field."""
+  userId: String
+
+  """Checks for equality with the object’s `foreName` field."""
+  foreName: String
+
+  """Checks for equality with the object’s `surName` field."""
+  surName: String
+
+  """Checks for equality with the object’s `hashedIdentNumber` field."""
+  hashedIdentNumber: String
+
+  """Checks for equality with the object’s `hashedInsuranceNumber` field."""
+  hashedInsuranceNumber: String
+
+  """Checks for equality with the object’s `email` field."""
+  email: String
+
+  """Checks for equality with the object’s `phone` field."""
+  phone: String
+
+  """Checks for equality with the object’s `birthdate` field."""
+  birthdate: Date
+
+  """Checks for equality with the object’s `verified` field."""
+  verified: Boolean
+
+  """Checks for equality with the object’s `insuranceCompanyId` field."""
+  insuranceCompanyId: Int
+
+  """Checks for equality with the object’s `hashedPassword` field."""
+  hashedPassword: String
+
+  """Checks for equality with the object’s `lastLogin` field."""
+  lastLogin: Date
+
+  """Checks for equality with the object’s `bloodTypeId` field."""
+  bloodTypeId: Int
+
+  """Checks for equality with the object’s `rhD` field."""
+  rhD: Boolean
+}
+
+"""
+A filter to be used against `User` object types. All fields are combined with a logical ‘and.’
+"""
+input UserFilter {
+  """Filter by the object’s `userId` field."""
+  userId: StringFilter
+
+  """Filter by the object’s `foreName` field."""
+  foreName: StringFilter
+
+  """Filter by the object’s `surName` field."""
+  surName: StringFilter
+
+  """Filter by the object’s `hashedIdentNumber` field."""
+  hashedIdentNumber: StringFilter
+
+  """Filter by the object’s `hashedInsuranceNumber` field."""
+  hashedInsuranceNumber: StringFilter
+
+  """Filter by the object’s `email` field."""
+  email: StringFilter
+
+  """Filter by the object’s `phone` field."""
+  phone: StringFilter
+
+  """Filter by the object’s `birthdate` field."""
+  birthdate: DateFilter
+
+  """Filter by the object’s `verified` field."""
+  verified: BooleanFilter
+
+  """Filter by the object’s `insuranceCompanyId` field."""
+  insuranceCompanyId: IntFilter
+
+  """Filter by the object’s `hashedPassword` field."""
+  hashedPassword: StringFilter
+
+  """Filter by the object’s `lastLogin` field."""
+  lastLogin: DateFilter
+
+  """Filter by the object’s `bloodTypeId` field."""
+  bloodTypeId: IntFilter
+
+  """Filter by the object’s `rhD` field."""
+  rhD: BooleanFilter
+
+  """Checks for all expressions in this list."""
+  and: [UserFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [UserFilter!]
+
+  """Negates the expression."""
+  not: UserFilter
+}
+
+"""
+A filter to be used against Int fields. All fields are combined with a logical ‘and.’
+"""
+input IntFilter {
+  """
+  Is null (if `true` is specified) or is not null (if `false` is specified).
+  """
+  isNull: Boolean
+
+  """Equal to the specified value."""
+  equalTo: Int
+
+  """Not equal to the specified value."""
+  notEqualTo: Int
+
+  """
+  Not equal to the specified value, treating null like an ordinary value.
+  """
+  distinctFrom: Int
+
+  """Equal to the specified value, treating null like an ordinary value."""
+  notDistinctFrom: Int
+
+  """Included in the specified list."""
+  in: [Int!]
+
+  """Not included in the specified list."""
+  notIn: [Int!]
+
+  """Less than the specified value."""
+  lessThan: Int
+
+  """Less than or equal to the specified value."""
+  lessThanOrEqualTo: Int
+
+  """Greater than the specified value."""
+  greaterThan: Int
+
+  """Greater than or equal to the specified value."""
+  greaterThanOrEqualTo: Int
+}
+
+type BloodType implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  bloodTypeId: Int!
+  name: String!
+
+  """Reads and enables pagination through a set of `User`."""
+  usersByBloodTypeId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserFilter
+  ): UsersConnection!
+}
+
+"""A connection to a list of `UserDiagnosis` values."""
+type UserDiagnosesConnection {
+  """A list of `UserDiagnosis` objects."""
+  nodes: [UserDiagnosis]!
+
+  """
+  A list of edges which contains the `UserDiagnosis` and cursor to aid in pagination.
+  """
+  edges: [UserDiagnosesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UserDiagnosis` you could get from the connection."""
+  totalCount: Int!
+}
+
+type UserDiagnosis {
+  userId: String!
+  diagnosisId: String!
+
+  """Reads a single `User` that is related to this `UserDiagnosis`."""
+  userByUserId: User
+
+  """Reads a single `Diagnosis` that is related to this `UserDiagnosis`."""
+  diagnosisByDiagnosisId: Diagnosis
+}
+
+type Diagnosis implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  diagnosisId: String!
+  name: String!
+  diagnosisCategoryId: String!
+  diagnosisGroupId: String!
+  description: String
+
+  """
+  Reads a single `DiagnosisCategory` that is related to this `Diagnosis`.
+  """
+  diagnosisCategoryByDiagnosisCategoryId: DiagnosisCategory
+
+  """Reads a single `DiagnosisGroup` that is related to this `Diagnosis`."""
+  diagnosisGroupByDiagnosisGroupId: DiagnosisGroup
+
+  """Reads and enables pagination through a set of `UserDiagnosis`."""
+  userDiagnosesByDiagnosisId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UserDiagnosis`."""
+    orderBy: [UserDiagnosesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserDiagnosisCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserDiagnosisFilter
+  ): UserDiagnosesConnection!
+}
+
+type DiagnosisCategory implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  diagnosisCategoryId: String!
+  name: String!
+  diagnosisGroupId: String!
+  description: String
+
+  """
+  Reads a single `DiagnosisGroup` that is related to this `DiagnosisCategory`.
+  """
+  diagnosisGroupByDiagnosisGroupId: DiagnosisGroup
+
+  """Reads and enables pagination through a set of `Diagnosis`."""
+  diagnosesByDiagnosisCategoryId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Diagnosis`."""
+    orderBy: [DiagnosesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DiagnosisCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DiagnosisFilter
+  ): DiagnosesConnection!
+}
+
+type DiagnosisGroup implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  diagnosisGroupId: String!
+  name: String!
+  description: String
+
+  """Reads and enables pagination through a set of `Diagnosis`."""
+  diagnosesByDiagnosisGroupId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `Diagnosis`."""
+    orderBy: [DiagnosesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DiagnosisCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DiagnosisFilter
+  ): DiagnosesConnection!
+
+  """Reads and enables pagination through a set of `DiagnosisCategory`."""
+  diagnosisCategoriesByDiagnosisGroupId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `DiagnosisCategory`."""
+    orderBy: [DiagnosisCategoriesOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: DiagnosisCategoryCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: DiagnosisCategoryFilter
+  ): DiagnosisCategoriesConnection!
+}
+
+"""A connection to a list of `Diagnosis` values."""
+type DiagnosesConnection {
+  """A list of `Diagnosis` objects."""
+  nodes: [Diagnosis]!
+
+  """
+  A list of edges which contains the `Diagnosis` and cursor to aid in pagination.
+  """
+  edges: [DiagnosesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Diagnosis` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Diagnosis` edge in the connection."""
+type DiagnosesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Diagnosis` at the end of the edge."""
+  node: Diagnosis
+}
+
+"""Methods to use when ordering `Diagnosis`."""
+enum DiagnosesOrderBy {
+  NATURAL
+  DIAGNOSIS_ID_ASC
+  DIAGNOSIS_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  DIAGNOSIS_CATEGORY_ID_ASC
+  DIAGNOSIS_CATEGORY_ID_DESC
+  DIAGNOSIS_GROUP_ID_ASC
+  DIAGNOSIS_GROUP_ID_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Diagnosis` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input DiagnosisCondition {
+  """Checks for equality with the object’s `diagnosisId` field."""
+  diagnosisId: String
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `diagnosisCategoryId` field."""
+  diagnosisCategoryId: String
+
+  """Checks for equality with the object’s `diagnosisGroupId` field."""
+  diagnosisGroupId: String
+
+  """Checks for equality with the object’s `description` field."""
+  description: String
+}
+
+"""
+A filter to be used against `Diagnosis` object types. All fields are combined with a logical ‘and.’
+"""
+input DiagnosisFilter {
+  """Filter by the object’s `diagnosisId` field."""
+  diagnosisId: StringFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `diagnosisCategoryId` field."""
+  diagnosisCategoryId: StringFilter
+
+  """Filter by the object’s `diagnosisGroupId` field."""
+  diagnosisGroupId: StringFilter
+
+  """Filter by the object’s `description` field."""
+  description: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [DiagnosisFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [DiagnosisFilter!]
+
+  """Negates the expression."""
+  not: DiagnosisFilter
+}
+
+"""A connection to a list of `DiagnosisCategory` values."""
+type DiagnosisCategoriesConnection {
+  """A list of `DiagnosisCategory` objects."""
+  nodes: [DiagnosisCategory]!
+
+  """
+  A list of edges which contains the `DiagnosisCategory` and cursor to aid in pagination.
+  """
+  edges: [DiagnosisCategoriesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `DiagnosisCategory` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `DiagnosisCategory` edge in the connection."""
+type DiagnosisCategoriesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `DiagnosisCategory` at the end of the edge."""
+  node: DiagnosisCategory
+}
+
+"""Methods to use when ordering `DiagnosisCategory`."""
+enum DiagnosisCategoriesOrderBy {
+  NATURAL
+  DIAGNOSIS_CATEGORY_ID_ASC
+  DIAGNOSIS_CATEGORY_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  DIAGNOSIS_GROUP_ID_ASC
+  DIAGNOSIS_GROUP_ID_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `DiagnosisCategory` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input DiagnosisCategoryCondition {
+  """Checks for equality with the object’s `diagnosisCategoryId` field."""
+  diagnosisCategoryId: String
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `diagnosisGroupId` field."""
+  diagnosisGroupId: String
+
+  """Checks for equality with the object’s `description` field."""
+  description: String
+}
+
+"""
+A filter to be used against `DiagnosisCategory` object types. All fields are combined with a logical ‘and.’
+"""
+input DiagnosisCategoryFilter {
+  """Filter by the object’s `diagnosisCategoryId` field."""
+  diagnosisCategoryId: StringFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `diagnosisGroupId` field."""
+  diagnosisGroupId: StringFilter
+
+  """Filter by the object’s `description` field."""
+  description: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [DiagnosisCategoryFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [DiagnosisCategoryFilter!]
+
+  """Negates the expression."""
+  not: DiagnosisCategoryFilter
+}
+
+"""Methods to use when ordering `UserDiagnosis`."""
+enum UserDiagnosesOrderBy {
+  NATURAL
+  USER_ID_ASC
+  USER_ID_DESC
+  DIAGNOSIS_ID_ASC
+  DIAGNOSIS_ID_DESC
+}
+
+"""
+A condition to be used against `UserDiagnosis` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input UserDiagnosisCondition {
+  """Checks for equality with the object’s `userId` field."""
+  userId: String
+
+  """Checks for equality with the object’s `diagnosisId` field."""
+  diagnosisId: String
+}
+
+"""
+A filter to be used against `UserDiagnosis` object types. All fields are combined with a logical ‘and.’
+"""
+input UserDiagnosisFilter {
+  """Filter by the object’s `userId` field."""
+  userId: StringFilter
+
+  """Filter by the object’s `diagnosisId` field."""
+  diagnosisId: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [UserDiagnosisFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [UserDiagnosisFilter!]
+
+  """Negates the expression."""
+  not: UserDiagnosisFilter
+}
+
+"""A `UserDiagnosis` edge in the connection."""
+type UserDiagnosesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserDiagnosis` at the end of the edge."""
+  node: UserDiagnosis
+}
+
+"""A connection to a list of `UserMedicament` values."""
+type UserMedicamentsConnection {
+  """A list of `UserMedicament` objects."""
+  nodes: [UserMedicament]!
+
+  """
+  A list of edges which contains the `UserMedicament` and cursor to aid in pagination.
+  """
+  edges: [UserMedicamentsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `UserMedicament` you could get from the connection."""
+  totalCount: Int!
+}
+
+type UserMedicament implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  userId: String!
+  medicamentId: String!
+  userMedicamentId: Int!
+
+  """Reads a single `User` that is related to this `UserMedicament`."""
+  userByUserId: User
+
+  """Reads a single `Medicament` that is related to this `UserMedicament`."""
+  medicamentByMedicamentId: Medicament
+
+  """Reads and enables pagination through a set of `UserMedicamentTime`."""
+  userMedicamentTimesByUserMedicamentId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UserMedicamentTime`."""
+    orderBy: [UserMedicamentTimesOrderBy!] = [NATURAL]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMedicamentTimeCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMedicamentTimeFilter
+  ): UserMedicamentTimesConnection!
+}
+
+type Medicament implements Node {
+  """
+  A globally unique identifier. Can be used in various places throughout the system to identify this single value.
+  """
+  nodeId: ID!
+  medicamentId: String!
+  title: String
+  supplement: String
+  strength: String
+  packaging: Int
+  holderCode: String
+  stateCode: String
+  atcCode: String
+  atcNameSk: String
+  indicationGroup: String
+  regNumber: String
+  expiration: String
+  dispensing: String
+  registrationType: String
+  regDate: String
+  validity: String
+  securityFeature: String
+
+  """Reads and enables pagination through a set of `UserMedicament`."""
+  userMedicamentsByMedicamentId(
+    """Only read the first `n` values of the set."""
+    first: Int
+
+    """Only read the last `n` values of the set."""
+    last: Int
+
+    """
+    Skip the first `n` values from our `after` cursor, an alternative to cursor
+    based pagination. May not be used with `last`.
+    """
+    offset: Int
+
+    """Read all values in the set before (above) this cursor."""
+    before: Cursor
+
+    """Read all values in the set after (below) this cursor."""
+    after: Cursor
+
+    """The method to use when ordering `UserMedicament`."""
+    orderBy: [UserMedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+
+    """
+    A condition to be used in determining which values should be returned by the collection.
+    """
+    condition: UserMedicamentCondition
+
+    """
+    A filter to be used in determining which values should be returned by the collection.
+    """
+    filter: UserMedicamentFilter
+  ): UserMedicamentsConnection!
+}
+
+"""Methods to use when ordering `UserMedicament`."""
+enum UserMedicamentsOrderBy {
+  NATURAL
+  USER_ID_ASC
+  USER_ID_DESC
+  MEDICAMENT_ID_ASC
+  MEDICAMENT_ID_DESC
+  USER_MEDICAMENT_ID_ASC
+  USER_MEDICAMENT_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `UserMedicament` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input UserMedicamentCondition {
+  """Checks for equality with the object’s `userId` field."""
+  userId: String
+
+  """Checks for equality with the object’s `medicamentId` field."""
+  medicamentId: String
+
+  """Checks for equality with the object’s `userMedicamentId` field."""
+  userMedicamentId: Int
+}
+
+"""
+A filter to be used against `UserMedicament` object types. All fields are combined with a logical ‘and.’
+"""
+input UserMedicamentFilter {
+  """Filter by the object’s `userId` field."""
+  userId: StringFilter
+
+  """Filter by the object’s `medicamentId` field."""
+  medicamentId: StringFilter
+
+  """Filter by the object’s `userMedicamentId` field."""
+  userMedicamentId: IntFilter
+
+  """Checks for all expressions in this list."""
+  and: [UserMedicamentFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [UserMedicamentFilter!]
+
+  """Negates the expression."""
+  not: UserMedicamentFilter
+}
+
+"""A connection to a list of `UserMedicamentTime` values."""
+type UserMedicamentTimesConnection {
+  """A list of `UserMedicamentTime` objects."""
+  nodes: [UserMedicamentTime]!
+
+  """
+  A list of edges which contains the `UserMedicamentTime` and cursor to aid in pagination.
+  """
+  edges: [UserMedicamentTimesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `UserMedicamentTime` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+type UserMedicamentTime {
+  time: String
+  dosing: Int
+  userMedicamentId: Int!
+  monday: Boolean!
+  tuesday: Boolean!
+  wednesday: Boolean!
+  thursday: Boolean!
+  friday: Boolean!
+  saturday: Boolean!
+  sunday: Boolean!
+
+  """
+  Reads a single `UserMedicament` that is related to this `UserMedicamentTime`.
+  """
+  userMedicamentByUserMedicamentId: UserMedicament
+}
+
+"""A `UserMedicamentTime` edge in the connection."""
+type UserMedicamentTimesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserMedicamentTime` at the end of the edge."""
+  node: UserMedicamentTime
+}
+
+"""Methods to use when ordering `UserMedicamentTime`."""
+enum UserMedicamentTimesOrderBy {
+  NATURAL
+  TIME_ASC
+  TIME_DESC
+  DOSING_ASC
+  DOSING_DESC
+  USER_MEDICAMENT_ID_ASC
+  USER_MEDICAMENT_ID_DESC
+  MONDAY_ASC
+  MONDAY_DESC
+  TUESDAY_ASC
+  TUESDAY_DESC
+  WEDNESDAY_ASC
+  WEDNESDAY_DESC
+  THURSDAY_ASC
+  THURSDAY_DESC
+  FRIDAY_ASC
+  FRIDAY_DESC
+  SATURDAY_ASC
+  SATURDAY_DESC
+  SUNDAY_ASC
+  SUNDAY_DESC
+}
+
+"""
+A condition to be used against `UserMedicamentTime` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input UserMedicamentTimeCondition {
+  """Checks for equality with the object’s `time` field."""
+  time: String
+
+  """Checks for equality with the object’s `dosing` field."""
+  dosing: Int
+
+  """Checks for equality with the object’s `userMedicamentId` field."""
+  userMedicamentId: Int
+
+  """Checks for equality with the object’s `monday` field."""
+  monday: Boolean
+
+  """Checks for equality with the object’s `tuesday` field."""
+  tuesday: Boolean
+
+  """Checks for equality with the object’s `wednesday` field."""
+  wednesday: Boolean
+
+  """Checks for equality with the object’s `thursday` field."""
+  thursday: Boolean
+
+  """Checks for equality with the object’s `friday` field."""
+  friday: Boolean
+
+  """Checks for equality with the object’s `saturday` field."""
+  saturday: Boolean
+
+  """Checks for equality with the object’s `sunday` field."""
+  sunday: Boolean
+}
+
+"""
+A filter to be used against `UserMedicamentTime` object types. All fields are combined with a logical ‘and.’
+"""
+input UserMedicamentTimeFilter {
+  """Filter by the object’s `time` field."""
+  time: StringFilter
+
+  """Filter by the object’s `dosing` field."""
+  dosing: IntFilter
+
+  """Filter by the object’s `userMedicamentId` field."""
+  userMedicamentId: IntFilter
+
+  """Filter by the object’s `monday` field."""
+  monday: BooleanFilter
+
+  """Filter by the object’s `tuesday` field."""
+  tuesday: BooleanFilter
+
+  """Filter by the object’s `wednesday` field."""
+  wednesday: BooleanFilter
+
+  """Filter by the object’s `thursday` field."""
+  thursday: BooleanFilter
+
+  """Filter by the object’s `friday` field."""
+  friday: BooleanFilter
+
+  """Filter by the object’s `saturday` field."""
+  saturday: BooleanFilter
+
+  """Filter by the object’s `sunday` field."""
+  sunday: BooleanFilter
+
+  """Checks for all expressions in this list."""
+  and: [UserMedicamentTimeFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [UserMedicamentTimeFilter!]
+
+  """Negates the expression."""
+  not: UserMedicamentTimeFilter
+}
+
+"""A `UserMedicament` edge in the connection."""
+type UserMedicamentsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `UserMedicament` at the end of the edge."""
+  node: UserMedicament
+}
+
+"""Methods to use when ordering `Meeting`."""
+enum MeetingsOrderBy {
+  NATURAL
+  MEETING_ID_ASC
+  MEETING_ID_DESC
+  MEETING_DATE_ASC
+  MEETING_DATE_DESC
+  NOTE_ASC
+  NOTE_DESC
+  USER_ID_ASC
+  USER_ID_DESC
+  ADMIN_ID_ASC
+  ADMIN_ID_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Meeting` object types. All fields are tested for equality and combined with a logical ‘and.’
+"""
+input MeetingCondition {
+  """Checks for equality with the object’s `meetingId` field."""
+  meetingId: Int
+
+  """Checks for equality with the object’s `meetingDate` field."""
+  meetingDate: Date
+
+  """Checks for equality with the object’s `note` field."""
+  note: String
+
+  """Checks for equality with the object’s `userId` field."""
+  userId: String
+
+  """Checks for equality with the object’s `adminId` field."""
+  adminId: String
+}
+
+"""
+A filter to be used against `Meeting` object types. All fields are combined with a logical ‘and.’
+"""
+input MeetingFilter {
+  """Filter by the object’s `meetingId` field."""
+  meetingId: IntFilter
+
+  """Filter by the object’s `meetingDate` field."""
+  meetingDate: DateFilter
+
+  """Filter by the object’s `note` field."""
+  note: StringFilter
+
+  """Filter by the object’s `userId` field."""
+  userId: StringFilter
+
+  """Filter by the object’s `adminId` field."""
+  adminId: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [MeetingFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [MeetingFilter!]
+
+  """Negates the expression."""
+  not: MeetingFilter
+}
+
+"""A `Meeting` edge in the connection."""
+type MeetingsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Meeting` at the end of the edge."""
+  node: Meeting
+}
+
+"""A `Admin` edge in the connection."""
+type AdminsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Admin` at the end of the edge."""
+  node: Admin
+}
+
+"""A connection to a list of `Ambulance` values."""
+type AmbulancesConnection {
+  """A list of `Ambulance` objects."""
+  nodes: [Ambulance]!
+
+  """
+  A list of edges which contains the `Ambulance` and cursor to aid in pagination.
+  """
+  edges: [AmbulancesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Ambulance` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Ambulance` edge in the connection."""
+type AmbulancesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Ambulance` at the end of the edge."""
+  node: Ambulance
+}
+
+"""Methods to use when ordering `Ambulance`."""
+enum AmbulancesOrderBy {
+  NATURAL
+  AMBULANCE_ID_ASC
+  AMBULANCE_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  ICO_ASC
+  ICO_DESC
+  CITY_ASC
+  CITY_DESC
+  STREET_ASC
+  STREET_DESC
+  STATE_ASC
+  STATE_DESC
+  SUITE_ASC
+  SUITE_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Ambulance` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input AmbulanceCondition {
+  """Checks for equality with the object’s `ambulanceId` field."""
+  ambulanceId: String
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `ico` field."""
+  ico: String
+
+  """Checks for equality with the object’s `city` field."""
+  city: String
+
+  """Checks for equality with the object’s `street` field."""
+  street: String
+
+  """Checks for equality with the object’s `state` field."""
+  state: String
+
+  """Checks for equality with the object’s `suite` field."""
+  suite: String
+}
+
+"""
+A filter to be used against `Ambulance` object types. All fields are combined with a logical ‘and.’
+"""
+input AmbulanceFilter {
+  """Filter by the object’s `ambulanceId` field."""
+  ambulanceId: StringFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `ico` field."""
+  ico: StringFilter
+
+  """Filter by the object’s `city` field."""
+  city: StringFilter
+
+  """Filter by the object’s `street` field."""
+  street: StringFilter
+
+  """Filter by the object’s `state` field."""
+  state: StringFilter
+
+  """Filter by the object’s `suite` field."""
+  suite: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [AmbulanceFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [AmbulanceFilter!]
+
+  """Negates the expression."""
+  not: AmbulanceFilter
+}
+
+"""A connection to a list of `Authorization` values."""
+type AuthorizationsConnection {
+  """A list of `Authorization` objects."""
+  nodes: [Authorization]!
+
+  """
+  A list of edges which contains the `Authorization` and cursor to aid in pagination.
+  """
+  edges: [AuthorizationsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Authorization` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Authorization` edge in the connection."""
+type AuthorizationsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Authorization` at the end of the edge."""
+  node: Authorization
+}
+
+"""Methods to use when ordering `Authorization`."""
+enum AuthorizationsOrderBy {
+  NATURAL
+  AUTHORIZATION_ID_ASC
+  AUTHORIZATION_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  ALL_ASC
+  ALL_DESC
+  PRESCRIPTION_ASC
+  PRESCRIPTION_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Authorization` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input AuthorizationCondition {
+  """Checks for equality with the object’s `authorizationId` field."""
+  authorizationId: String
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `all` field."""
+  all: Boolean
+
+  """Checks for equality with the object’s `prescription` field."""
+  prescription: Boolean
+}
+
+"""
+A filter to be used against `Authorization` object types. All fields are combined with a logical ‘and.’
+"""
+input AuthorizationFilter {
+  """Filter by the object’s `authorizationId` field."""
+  authorizationId: StringFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `all` field."""
+  all: BooleanFilter
+
+  """Filter by the object’s `prescription` field."""
+  prescription: BooleanFilter
+
+  """Checks for all expressions in this list."""
+  and: [AuthorizationFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [AuthorizationFilter!]
+
+  """Negates the expression."""
+  not: AuthorizationFilter
+}
+
+"""A connection to a list of `BloodType` values."""
+type BloodTypesConnection {
+  """A list of `BloodType` objects."""
+  nodes: [BloodType]!
+
+  """
+  A list of edges which contains the `BloodType` and cursor to aid in pagination.
+  """
+  edges: [BloodTypesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `BloodType` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `BloodType` edge in the connection."""
+type BloodTypesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `BloodType` at the end of the edge."""
+  node: BloodType
+}
+
+"""Methods to use when ordering `BloodType`."""
+enum BloodTypesOrderBy {
+  NATURAL
+  BLOOD_TYPE_ID_ASC
+  BLOOD_TYPE_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `BloodType` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input BloodTypeCondition {
+  """Checks for equality with the object’s `bloodTypeId` field."""
+  bloodTypeId: Int
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+}
+
+"""
+A filter to be used against `BloodType` object types. All fields are combined with a logical ‘and.’
+"""
+input BloodTypeFilter {
+  """Filter by the object’s `bloodTypeId` field."""
+  bloodTypeId: IntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [BloodTypeFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [BloodTypeFilter!]
+
+  """Negates the expression."""
+  not: BloodTypeFilter
+}
+
+"""A connection to a list of `DiagnosisGroup` values."""
+type DiagnosisGroupsConnection {
+  """A list of `DiagnosisGroup` objects."""
+  nodes: [DiagnosisGroup]!
+
+  """
+  A list of edges which contains the `DiagnosisGroup` and cursor to aid in pagination.
+  """
+  edges: [DiagnosisGroupsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `DiagnosisGroup` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `DiagnosisGroup` edge in the connection."""
+type DiagnosisGroupsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `DiagnosisGroup` at the end of the edge."""
+  node: DiagnosisGroup
+}
+
+"""Methods to use when ordering `DiagnosisGroup`."""
+enum DiagnosisGroupsOrderBy {
+  NATURAL
+  DIAGNOSIS_GROUP_ID_ASC
+  DIAGNOSIS_GROUP_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  DESCRIPTION_ASC
+  DESCRIPTION_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `DiagnosisGroup` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input DiagnosisGroupCondition {
+  """Checks for equality with the object’s `diagnosisGroupId` field."""
+  diagnosisGroupId: String
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+
+  """Checks for equality with the object’s `description` field."""
+  description: String
+}
+
+"""
+A filter to be used against `DiagnosisGroup` object types. All fields are combined with a logical ‘and.’
+"""
+input DiagnosisGroupFilter {
+  """Filter by the object’s `diagnosisGroupId` field."""
+  diagnosisGroupId: StringFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Filter by the object’s `description` field."""
+  description: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [DiagnosisGroupFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [DiagnosisGroupFilter!]
+
+  """Negates the expression."""
+  not: DiagnosisGroupFilter
+}
+
+"""A connection to a list of `InsuranceCompany` values."""
+type InsuranceCompaniesConnection {
+  """A list of `InsuranceCompany` objects."""
+  nodes: [InsuranceCompany]!
+
+  """
+  A list of edges which contains the `InsuranceCompany` and cursor to aid in pagination.
+  """
+  edges: [InsuranceCompaniesEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """
+  The count of *all* `InsuranceCompany` you could get from the connection.
+  """
+  totalCount: Int!
+}
+
+"""A `InsuranceCompany` edge in the connection."""
+type InsuranceCompaniesEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `InsuranceCompany` at the end of the edge."""
+  node: InsuranceCompany
+}
+
+"""Methods to use when ordering `InsuranceCompany`."""
+enum InsuranceCompaniesOrderBy {
+  NATURAL
+  INSURANCE_COMPANY_ID_ASC
+  INSURANCE_COMPANY_ID_DESC
+  NAME_ASC
+  NAME_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `InsuranceCompany` object types. All fields are
+tested for equality and combined with a logical ‘and.’
+"""
+input InsuranceCompanyCondition {
+  """Checks for equality with the object’s `insuranceCompanyId` field."""
+  insuranceCompanyId: Int
+
+  """Checks for equality with the object’s `name` field."""
+  name: String
+}
+
+"""
+A filter to be used against `InsuranceCompany` object types. All fields are combined with a logical ‘and.’
+"""
+input InsuranceCompanyFilter {
+  """Filter by the object’s `insuranceCompanyId` field."""
+  insuranceCompanyId: IntFilter
+
+  """Filter by the object’s `name` field."""
+  name: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [InsuranceCompanyFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [InsuranceCompanyFilter!]
+
+  """Negates the expression."""
+  not: InsuranceCompanyFilter
+}
+
+"""A connection to a list of `Medicament` values."""
+type MedicamentsConnection {
+  """A list of `Medicament` objects."""
+  nodes: [Medicament]!
+
+  """
+  A list of edges which contains the `Medicament` and cursor to aid in pagination.
+  """
+  edges: [MedicamentsEdge!]!
+
+  """Information to aid in pagination."""
+  pageInfo: PageInfo!
+
+  """The count of *all* `Medicament` you could get from the connection."""
+  totalCount: Int!
+}
+
+"""A `Medicament` edge in the connection."""
+type MedicamentsEdge {
+  """A cursor for use in pagination."""
+  cursor: Cursor
+
+  """The `Medicament` at the end of the edge."""
+  node: Medicament
+}
+
+"""Methods to use when ordering `Medicament`."""
+enum MedicamentsOrderBy {
+  NATURAL
+  MEDICAMENT_ID_ASC
+  MEDICAMENT_ID_DESC
+  TITLE_ASC
+  TITLE_DESC
+  SUPPLEMENT_ASC
+  SUPPLEMENT_DESC
+  STRENGTH_ASC
+  STRENGTH_DESC
+  PACKAGING_ASC
+  PACKAGING_DESC
+  HOLDER_CODE_ASC
+  HOLDER_CODE_DESC
+  STATE_CODE_ASC
+  STATE_CODE_DESC
+  ATC_CODE_ASC
+  ATC_CODE_DESC
+  ATC_NAME_SK_ASC
+  ATC_NAME_SK_DESC
+  INDICATION_GROUP_ASC
+  INDICATION_GROUP_DESC
+  REG_NUMBER_ASC
+  REG_NUMBER_DESC
+  EXPIRATION_ASC
+  EXPIRATION_DESC
+  DISPENSING_ASC
+  DISPENSING_DESC
+  REGISTRATION_TYPE_ASC
+  REGISTRATION_TYPE_DESC
+  REG_DATE_ASC
+  REG_DATE_DESC
+  VALIDITY_ASC
+  VALIDITY_DESC
+  SECURITY_FEATURE_ASC
+  SECURITY_FEATURE_DESC
+  PRIMARY_KEY_ASC
+  PRIMARY_KEY_DESC
+}
+
+"""
+A condition to be used against `Medicament` object types. All fields are tested
+for equality and combined with a logical ‘and.’
+"""
+input MedicamentCondition {
+  """Checks for equality with the object’s `medicamentId` field."""
+  medicamentId: String
+
+  """Checks for equality with the object’s `title` field."""
+  title: String
+
+  """Checks for equality with the object’s `supplement` field."""
+  supplement: String
+
+  """Checks for equality with the object’s `strength` field."""
+  strength: String
+
+  """Checks for equality with the object’s `packaging` field."""
+  packaging: Int
+
+  """Checks for equality with the object’s `holderCode` field."""
+  holderCode: String
+
+  """Checks for equality with the object’s `stateCode` field."""
+  stateCode: String
+
+  """Checks for equality with the object’s `atcCode` field."""
+  atcCode: String
+
+  """Checks for equality with the object’s `atcNameSk` field."""
+  atcNameSk: String
+
+  """Checks for equality with the object’s `indicationGroup` field."""
+  indicationGroup: String
+
+  """Checks for equality with the object’s `regNumber` field."""
+  regNumber: String
+
+  """Checks for equality with the object’s `expiration` field."""
+  expiration: String
+
+  """Checks for equality with the object’s `dispensing` field."""
+  dispensing: String
+
+  """Checks for equality with the object’s `registrationType` field."""
+  registrationType: String
+
+  """Checks for equality with the object’s `regDate` field."""
+  regDate: String
+
+  """Checks for equality with the object’s `validity` field."""
+  validity: String
+
+  """Checks for equality with the object’s `securityFeature` field."""
+  securityFeature: String
+}
+
+"""
+A filter to be used against `Medicament` object types. All fields are combined with a logical ‘and.’
+"""
+input MedicamentFilter {
+  """Filter by the object’s `medicamentId` field."""
+  medicamentId: StringFilter
+
+  """Filter by the object’s `title` field."""
+  title: StringFilter
+
+  """Filter by the object’s `supplement` field."""
+  supplement: StringFilter
+
+  """Filter by the object’s `strength` field."""
+  strength: StringFilter
+
+  """Filter by the object’s `packaging` field."""
+  packaging: IntFilter
+
+  """Filter by the object’s `holderCode` field."""
+  holderCode: StringFilter
+
+  """Filter by the object’s `stateCode` field."""
+  stateCode: StringFilter
+
+  """Filter by the object’s `atcCode` field."""
+  atcCode: StringFilter
+
+  """Filter by the object’s `atcNameSk` field."""
+  atcNameSk: StringFilter
+
+  """Filter by the object’s `indicationGroup` field."""
+  indicationGroup: StringFilter
+
+  """Filter by the object’s `regNumber` field."""
+  regNumber: StringFilter
+
+  """Filter by the object’s `expiration` field."""
+  expiration: StringFilter
+
+  """Filter by the object’s `dispensing` field."""
+  dispensing: StringFilter
+
+  """Filter by the object’s `registrationType` field."""
+  registrationType: StringFilter
+
+  """Filter by the object’s `regDate` field."""
+  regDate: StringFilter
+
+  """Filter by the object’s `validity` field."""
+  validity: StringFilter
+
+  """Filter by the object’s `securityFeature` field."""
+  securityFeature: StringFilter
+
+  """Checks for all expressions in this list."""
+  and: [MedicamentFilter!]
+
+  """Checks for any expressions in this list."""
+  or: [MedicamentFilter!]
+
+  """Negates the expression."""
+  not: MedicamentFilter
+}
+
+"""
+The root mutation type which contains root level fields which mutate data.
+"""
+type Mutation {
+  """Creates a single `Admin`."""
+  createAdmin(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateAdminInput!
+  ): CreateAdminPayload
+
+  """Creates a single `Ambulance`."""
+  createAmbulance(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateAmbulanceInput!
+  ): CreateAmbulancePayload
+
+  """Creates a single `Authorization`."""
+  createAuthorization(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateAuthorizationInput!
+  ): CreateAuthorizationPayload
+
+  """Creates a single `BloodType`."""
+  createBloodType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateBloodTypeInput!
+  ): CreateBloodTypePayload
+
+  """Creates a single `Diagnosis`."""
+  createDiagnosis(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateDiagnosisInput!
+  ): CreateDiagnosisPayload
+
+  """Creates a single `DiagnosisCategory`."""
+  createDiagnosisCategory(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateDiagnosisCategoryInput!
+  ): CreateDiagnosisCategoryPayload
+
+  """Creates a single `DiagnosisGroup`."""
+  createDiagnosisGroup(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateDiagnosisGroupInput!
+  ): CreateDiagnosisGroupPayload
+
+  """Creates a single `InsuranceCompany`."""
+  createInsuranceCompany(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateInsuranceCompanyInput!
+  ): CreateInsuranceCompanyPayload
+
+  """Creates a single `Medicament`."""
+  createMedicament(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMedicamentInput!
+  ): CreateMedicamentPayload
+
+  """Creates a single `Meeting`."""
+  createMeeting(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateMeetingInput!
+  ): CreateMeetingPayload
+
+  """Creates a single `User`."""
+  createUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserInput!
+  ): CreateUserPayload
+
+  """Creates a single `UserDiagnosis`."""
+  createUserDiagnosis(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserDiagnosisInput!
+  ): CreateUserDiagnosisPayload
+
+  """Creates a single `UserMedicament`."""
+  createUserMedicament(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserMedicamentInput!
+  ): CreateUserMedicamentPayload
+
+  """Creates a single `UserMedicamentTime`."""
+  createUserMedicamentTime(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: CreateUserMedicamentTimeInput!
+  ): CreateUserMedicamentTimePayload
+
+  """Updates a single `Admin` using its globally unique id and a patch."""
+  updateAdmin(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAdminInput!
+  ): UpdateAdminPayload
+
+  """Updates a single `Admin` using a unique key and a patch."""
+  updateAdminByAdminId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAdminByAdminIdInput!
+  ): UpdateAdminPayload
+
+  """Updates a single `Ambulance` using its globally unique id and a patch."""
+  updateAmbulance(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAmbulanceInput!
+  ): UpdateAmbulancePayload
+
+  """Updates a single `Ambulance` using a unique key and a patch."""
+  updateAmbulanceByAmbulanceId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAmbulanceByAmbulanceIdInput!
+  ): UpdateAmbulancePayload
+
+  """
+  Updates a single `Authorization` using its globally unique id and a patch.
+  """
+  updateAuthorization(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAuthorizationInput!
+  ): UpdateAuthorizationPayload
+
+  """Updates a single `Authorization` using a unique key and a patch."""
+  updateAuthorizationByAuthorizationId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateAuthorizationByAuthorizationIdInput!
+  ): UpdateAuthorizationPayload
+
+  """Updates a single `BloodType` using its globally unique id and a patch."""
+  updateBloodType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateBloodTypeInput!
+  ): UpdateBloodTypePayload
+
+  """Updates a single `BloodType` using a unique key and a patch."""
+  updateBloodTypeByBloodTypeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateBloodTypeByBloodTypeIdInput!
+  ): UpdateBloodTypePayload
+
+  """Updates a single `Diagnosis` using its globally unique id and a patch."""
+  updateDiagnosis(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDiagnosisInput!
+  ): UpdateDiagnosisPayload
+
+  """Updates a single `Diagnosis` using a unique key and a patch."""
+  updateDiagnosisByDiagnosisId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDiagnosisByDiagnosisIdInput!
+  ): UpdateDiagnosisPayload
+
+  """
+  Updates a single `DiagnosisCategory` using its globally unique id and a patch.
+  """
+  updateDiagnosisCategory(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDiagnosisCategoryInput!
+  ): UpdateDiagnosisCategoryPayload
+
+  """Updates a single `DiagnosisCategory` using a unique key and a patch."""
+  updateDiagnosisCategoryByDiagnosisCategoryId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDiagnosisCategoryByDiagnosisCategoryIdInput!
+  ): UpdateDiagnosisCategoryPayload
+
+  """
+  Updates a single `DiagnosisGroup` using its globally unique id and a patch.
+  """
+  updateDiagnosisGroup(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDiagnosisGroupInput!
+  ): UpdateDiagnosisGroupPayload
+
+  """Updates a single `DiagnosisGroup` using a unique key and a patch."""
+  updateDiagnosisGroupByDiagnosisGroupId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateDiagnosisGroupByDiagnosisGroupIdInput!
+  ): UpdateDiagnosisGroupPayload
+
+  """
+  Updates a single `InsuranceCompany` using its globally unique id and a patch.
+  """
+  updateInsuranceCompany(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateInsuranceCompanyInput!
+  ): UpdateInsuranceCompanyPayload
+
+  """Updates a single `InsuranceCompany` using a unique key and a patch."""
+  updateInsuranceCompanyByInsuranceCompanyId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateInsuranceCompanyByInsuranceCompanyIdInput!
+  ): UpdateInsuranceCompanyPayload
+
+  """
+  Updates a single `Medicament` using its globally unique id and a patch.
+  """
+  updateMedicament(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMedicamentInput!
+  ): UpdateMedicamentPayload
+
+  """Updates a single `Medicament` using a unique key and a patch."""
+  updateMedicamentByMedicamentId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMedicamentByMedicamentIdInput!
+  ): UpdateMedicamentPayload
+
+  """Updates a single `Meeting` using its globally unique id and a patch."""
+  updateMeeting(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMeetingInput!
+  ): UpdateMeetingPayload
+
+  """Updates a single `Meeting` using a unique key and a patch."""
+  updateMeetingByMeetingId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateMeetingByMeetingIdInput!
+  ): UpdateMeetingPayload
+
+  """Updates a single `User` using its globally unique id and a patch."""
+  updateUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserInput!
+  ): UpdateUserPayload
+
+  """Updates a single `User` using a unique key and a patch."""
+  updateUserByUserId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserByUserIdInput!
+  ): UpdateUserPayload
+
+  """
+  Updates a single `UserMedicament` using its globally unique id and a patch.
+  """
+  updateUserMedicament(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserMedicamentInput!
+  ): UpdateUserMedicamentPayload
+
+  """Updates a single `UserMedicament` using a unique key and a patch."""
+  updateUserMedicamentByUserMedicamentId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: UpdateUserMedicamentByUserMedicamentIdInput!
+  ): UpdateUserMedicamentPayload
+
+  """Deletes a single `Admin` using its globally unique id."""
+  deleteAdmin(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAdminInput!
+  ): DeleteAdminPayload
+
+  """Deletes a single `Admin` using a unique key."""
+  deleteAdminByAdminId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAdminByAdminIdInput!
+  ): DeleteAdminPayload
+
+  """Deletes a single `Ambulance` using its globally unique id."""
+  deleteAmbulance(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAmbulanceInput!
+  ): DeleteAmbulancePayload
+
+  """Deletes a single `Ambulance` using a unique key."""
+  deleteAmbulanceByAmbulanceId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAmbulanceByAmbulanceIdInput!
+  ): DeleteAmbulancePayload
+
+  """Deletes a single `Authorization` using its globally unique id."""
+  deleteAuthorization(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAuthorizationInput!
+  ): DeleteAuthorizationPayload
+
+  """Deletes a single `Authorization` using a unique key."""
+  deleteAuthorizationByAuthorizationId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteAuthorizationByAuthorizationIdInput!
+  ): DeleteAuthorizationPayload
+
+  """Deletes a single `BloodType` using its globally unique id."""
+  deleteBloodType(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteBloodTypeInput!
+  ): DeleteBloodTypePayload
+
+  """Deletes a single `BloodType` using a unique key."""
+  deleteBloodTypeByBloodTypeId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteBloodTypeByBloodTypeIdInput!
+  ): DeleteBloodTypePayload
+
+  """Deletes a single `Diagnosis` using its globally unique id."""
+  deleteDiagnosis(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDiagnosisInput!
+  ): DeleteDiagnosisPayload
+
+  """Deletes a single `Diagnosis` using a unique key."""
+  deleteDiagnosisByDiagnosisId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDiagnosisByDiagnosisIdInput!
+  ): DeleteDiagnosisPayload
+
+  """Deletes a single `DiagnosisCategory` using its globally unique id."""
+  deleteDiagnosisCategory(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDiagnosisCategoryInput!
+  ): DeleteDiagnosisCategoryPayload
+
+  """Deletes a single `DiagnosisCategory` using a unique key."""
+  deleteDiagnosisCategoryByDiagnosisCategoryId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDiagnosisCategoryByDiagnosisCategoryIdInput!
+  ): DeleteDiagnosisCategoryPayload
+
+  """Deletes a single `DiagnosisGroup` using its globally unique id."""
+  deleteDiagnosisGroup(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDiagnosisGroupInput!
+  ): DeleteDiagnosisGroupPayload
+
+  """Deletes a single `DiagnosisGroup` using a unique key."""
+  deleteDiagnosisGroupByDiagnosisGroupId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteDiagnosisGroupByDiagnosisGroupIdInput!
+  ): DeleteDiagnosisGroupPayload
+
+  """Deletes a single `InsuranceCompany` using its globally unique id."""
+  deleteInsuranceCompany(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteInsuranceCompanyInput!
+  ): DeleteInsuranceCompanyPayload
+
+  """Deletes a single `InsuranceCompany` using a unique key."""
+  deleteInsuranceCompanyByInsuranceCompanyId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteInsuranceCompanyByInsuranceCompanyIdInput!
+  ): DeleteInsuranceCompanyPayload
+
+  """Deletes a single `Medicament` using its globally unique id."""
+  deleteMedicament(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMedicamentInput!
+  ): DeleteMedicamentPayload
+
+  """Deletes a single `Medicament` using a unique key."""
+  deleteMedicamentByMedicamentId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMedicamentByMedicamentIdInput!
+  ): DeleteMedicamentPayload
+
+  """Deletes a single `Meeting` using its globally unique id."""
+  deleteMeeting(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMeetingInput!
+  ): DeleteMeetingPayload
+
+  """Deletes a single `Meeting` using a unique key."""
+  deleteMeetingByMeetingId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteMeetingByMeetingIdInput!
+  ): DeleteMeetingPayload
+
+  """Deletes a single `User` using its globally unique id."""
+  deleteUser(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserInput!
+  ): DeleteUserPayload
+
+  """Deletes a single `User` using a unique key."""
+  deleteUserByUserId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserByUserIdInput!
+  ): DeleteUserPayload
+
+  """Deletes a single `UserMedicament` using its globally unique id."""
+  deleteUserMedicament(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserMedicamentInput!
+  ): DeleteUserMedicamentPayload
+
+  """Deletes a single `UserMedicament` using a unique key."""
+  deleteUserMedicamentByUserMedicamentId(
+    """
+    The exclusive input argument for this mutation. An object type, make sure to see documentation for this object’s fields.
+    """
+    input: DeleteUserMedicamentByUserMedicamentIdInput!
+  ): DeleteUserMedicamentPayload
+}
+
+"""The output of our create `Admin` mutation."""
+type CreateAdminPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Admin` that was created by this mutation."""
+  admin: Admin
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Authorization` that is related to this `Admin`."""
+  authorizationByAuthorizationId: Authorization
+
+  """Reads a single `Ambulance` that is related to this `Admin`."""
+  ambulanceByAmbulanceId: Ambulance
+
+  """An edge for our `Admin`. May be used by Relay 1."""
+  adminEdge(
+    """The method to use when ordering `Admin`."""
+    orderBy: [AdminsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AdminsEdge
+}
+
+"""All input for the create `Admin` mutation."""
+input CreateAdminInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Admin` to be created by this mutation."""
+  admin: AdminInput!
+}
+
+"""An input for mutations affecting `Admin`"""
+input AdminInput {
+  adminId: String!
+  firstName: String
+  lastName: String
+  authorizationId: String!
+  ambulanceId: String!
+  adminVerified: Boolean!
+  registrationDate: Date!
+  email: String!
+  phone: String!
+  hashedPassword: String
+  lastLogin: Date
+}
+
+"""The output of our create `Ambulance` mutation."""
+type CreateAmbulancePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Ambulance` that was created by this mutation."""
+  ambulance: Ambulance
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Ambulance`. May be used by Relay 1."""
+  ambulanceEdge(
+    """The method to use when ordering `Ambulance`."""
+    orderBy: [AmbulancesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AmbulancesEdge
+}
+
+"""All input for the create `Ambulance` mutation."""
+input CreateAmbulanceInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Ambulance` to be created by this mutation."""
+  ambulance: AmbulanceInput!
+}
+
+"""An input for mutations affecting `Ambulance`"""
+input AmbulanceInput {
+  ambulanceId: String!
+  name: String!
+  ico: String!
+  city: String!
+  street: String!
+  state: String!
+  suite: String!
+}
+
+"""The output of our create `Authorization` mutation."""
+type CreateAuthorizationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Authorization` that was created by this mutation."""
+  authorization: Authorization
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Authorization`. May be used by Relay 1."""
+  authorizationEdge(
+    """The method to use when ordering `Authorization`."""
+    orderBy: [AuthorizationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AuthorizationsEdge
+}
+
+"""All input for the create `Authorization` mutation."""
+input CreateAuthorizationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Authorization` to be created by this mutation."""
+  authorization: AuthorizationInput!
+}
+
+"""An input for mutations affecting `Authorization`"""
+input AuthorizationInput {
+  authorizationId: String!
+  name: String!
+  all: Boolean!
+  prescription: Boolean!
+}
+
+"""The output of our create `BloodType` mutation."""
+type CreateBloodTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `BloodType` that was created by this mutation."""
+  bloodType: BloodType
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `BloodType`. May be used by Relay 1."""
+  bloodTypeEdge(
+    """The method to use when ordering `BloodType`."""
+    orderBy: [BloodTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): BloodTypesEdge
+}
+
+"""All input for the create `BloodType` mutation."""
+input CreateBloodTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `BloodType` to be created by this mutation."""
+  bloodType: BloodTypeInput!
+}
+
+"""An input for mutations affecting `BloodType`"""
+input BloodTypeInput {
+  bloodTypeId: Int!
+  name: String!
+}
+
+"""The output of our create `Diagnosis` mutation."""
+type CreateDiagnosisPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Diagnosis` that was created by this mutation."""
+  diagnosis: Diagnosis
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `DiagnosisCategory` that is related to this `Diagnosis`.
+  """
+  diagnosisCategoryByDiagnosisCategoryId: DiagnosisCategory
+
+  """Reads a single `DiagnosisGroup` that is related to this `Diagnosis`."""
+  diagnosisGroupByDiagnosisGroupId: DiagnosisGroup
+
+  """An edge for our `Diagnosis`. May be used by Relay 1."""
+  diagnosisEdge(
+    """The method to use when ordering `Diagnosis`."""
+    orderBy: [DiagnosesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DiagnosesEdge
+}
+
+"""All input for the create `Diagnosis` mutation."""
+input CreateDiagnosisInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Diagnosis` to be created by this mutation."""
+  diagnosis: DiagnosisInput!
+}
+
+"""An input for mutations affecting `Diagnosis`"""
+input DiagnosisInput {
+  diagnosisId: String!
+  name: String!
+  diagnosisCategoryId: String!
+  diagnosisGroupId: String!
+  description: String
+}
+
+"""The output of our create `DiagnosisCategory` mutation."""
+type CreateDiagnosisCategoryPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `DiagnosisCategory` that was created by this mutation."""
+  diagnosisCategory: DiagnosisCategory
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `DiagnosisGroup` that is related to this `DiagnosisCategory`.
+  """
+  diagnosisGroupByDiagnosisGroupId: DiagnosisGroup
+
+  """An edge for our `DiagnosisCategory`. May be used by Relay 1."""
+  diagnosisCategoryEdge(
+    """The method to use when ordering `DiagnosisCategory`."""
+    orderBy: [DiagnosisCategoriesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DiagnosisCategoriesEdge
+}
+
+"""All input for the create `DiagnosisCategory` mutation."""
+input CreateDiagnosisCategoryInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `DiagnosisCategory` to be created by this mutation."""
+  diagnosisCategory: DiagnosisCategoryInput!
+}
+
+"""An input for mutations affecting `DiagnosisCategory`"""
+input DiagnosisCategoryInput {
+  diagnosisCategoryId: String!
+  name: String!
+  diagnosisGroupId: String!
+  description: String
+}
+
+"""The output of our create `DiagnosisGroup` mutation."""
+type CreateDiagnosisGroupPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `DiagnosisGroup` that was created by this mutation."""
+  diagnosisGroup: DiagnosisGroup
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `DiagnosisGroup`. May be used by Relay 1."""
+  diagnosisGroupEdge(
+    """The method to use when ordering `DiagnosisGroup`."""
+    orderBy: [DiagnosisGroupsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DiagnosisGroupsEdge
+}
+
+"""All input for the create `DiagnosisGroup` mutation."""
+input CreateDiagnosisGroupInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `DiagnosisGroup` to be created by this mutation."""
+  diagnosisGroup: DiagnosisGroupInput!
+}
+
+"""An input for mutations affecting `DiagnosisGroup`"""
+input DiagnosisGroupInput {
+  diagnosisGroupId: String!
+  name: String!
+  description: String
+}
+
+"""The output of our create `InsuranceCompany` mutation."""
+type CreateInsuranceCompanyPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `InsuranceCompany` that was created by this mutation."""
+  insuranceCompany: InsuranceCompany
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `InsuranceCompany`. May be used by Relay 1."""
+  insuranceCompanyEdge(
+    """The method to use when ordering `InsuranceCompany`."""
+    orderBy: [InsuranceCompaniesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): InsuranceCompaniesEdge
+}
+
+"""All input for the create `InsuranceCompany` mutation."""
+input CreateInsuranceCompanyInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `InsuranceCompany` to be created by this mutation."""
+  insuranceCompany: InsuranceCompanyInput!
+}
+
+"""An input for mutations affecting `InsuranceCompany`"""
+input InsuranceCompanyInput {
+  insuranceCompanyId: Int!
+  name: String!
+}
+
+"""The output of our create `Medicament` mutation."""
+type CreateMedicamentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Medicament` that was created by this mutation."""
+  medicament: Medicament
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Medicament`. May be used by Relay 1."""
+  medicamentEdge(
+    """The method to use when ordering `Medicament`."""
+    orderBy: [MedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MedicamentsEdge
+}
+
+"""All input for the create `Medicament` mutation."""
+input CreateMedicamentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Medicament` to be created by this mutation."""
+  medicament: MedicamentInput!
+}
+
+"""An input for mutations affecting `Medicament`"""
+input MedicamentInput {
+  medicamentId: String!
+  title: String
+  supplement: String
+  strength: String
+  packaging: Int
+  holderCode: String
+  stateCode: String
+  atcCode: String
+  atcNameSk: String
+  indicationGroup: String
+  regNumber: String
+  expiration: String
+  dispensing: String
+  registrationType: String
+  regDate: String
+  validity: String
+  securityFeature: String
+}
+
+"""The output of our create `Meeting` mutation."""
+type CreateMeetingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Meeting` that was created by this mutation."""
+  meeting: Meeting
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `Meeting`."""
+  userByUserId: User
+
+  """Reads a single `Admin` that is related to this `Meeting`."""
+  adminByAdminId: Admin
+
+  """An edge for our `Meeting`. May be used by Relay 1."""
+  meetingEdge(
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MeetingsEdge
+}
+
+"""All input for the create `Meeting` mutation."""
+input CreateMeetingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `Meeting` to be created by this mutation."""
+  meeting: MeetingInput!
+}
+
+"""An input for mutations affecting `Meeting`"""
+input MeetingInput {
+  meetingId: Int
+  meetingDate: Date!
+  note: String
+  userId: String!
+  adminId: String!
+}
+
+"""The output of our create `User` mutation."""
+type CreateUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `User` that was created by this mutation."""
+  user: User
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `InsuranceCompany` that is related to this `User`."""
+  insuranceCompanyByInsuranceCompanyId: InsuranceCompany
+
+  """Reads a single `BloodType` that is related to this `User`."""
+  bloodTypeByBloodTypeId: BloodType
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+"""All input for the create `User` mutation."""
+input CreateUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `User` to be created by this mutation."""
+  user: UserInput!
+}
+
+"""An input for mutations affecting `User`"""
+input UserInput {
+  userId: String!
+  foreName: String!
+  surName: String!
+  hashedIdentNumber: String
+  hashedInsuranceNumber: String
+  email: String
+  phone: String
+  birthdate: Date!
+  verified: Boolean!
+  insuranceCompanyId: Int!
+  hashedPassword: String!
+  lastLogin: Date
+  bloodTypeId: Int
+  rhD: Boolean
+}
+
+"""The output of our create `UserDiagnosis` mutation."""
+type CreateUserDiagnosisPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UserDiagnosis` that was created by this mutation."""
+  userDiagnosis: UserDiagnosis
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserDiagnosis`."""
+  userByUserId: User
+
+  """Reads a single `Diagnosis` that is related to this `UserDiagnosis`."""
+  diagnosisByDiagnosisId: Diagnosis
+
+  """An edge for our `UserDiagnosis`. May be used by Relay 1."""
+  userDiagnosisEdge(
+    """The method to use when ordering `UserDiagnosis`."""
+    orderBy: [UserDiagnosesOrderBy!] = [NATURAL]
+  ): UserDiagnosesEdge
+}
+
+"""All input for the create `UserDiagnosis` mutation."""
+input CreateUserDiagnosisInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserDiagnosis` to be created by this mutation."""
+  userDiagnosis: UserDiagnosisInput!
+}
+
+"""An input for mutations affecting `UserDiagnosis`"""
+input UserDiagnosisInput {
+  userId: String!
+  diagnosisId: String!
+}
+
+"""The output of our create `UserMedicament` mutation."""
+type CreateUserMedicamentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UserMedicament` that was created by this mutation."""
+  userMedicament: UserMedicament
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserMedicament`."""
+  userByUserId: User
+
+  """Reads a single `Medicament` that is related to this `UserMedicament`."""
+  medicamentByMedicamentId: Medicament
+
+  """An edge for our `UserMedicament`. May be used by Relay 1."""
+  userMedicamentEdge(
+    """The method to use when ordering `UserMedicament`."""
+    orderBy: [UserMedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMedicamentsEdge
+}
+
+"""All input for the create `UserMedicament` mutation."""
+input CreateUserMedicamentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserMedicament` to be created by this mutation."""
+  userMedicament: UserMedicamentInput!
+}
+
+"""An input for mutations affecting `UserMedicament`"""
+input UserMedicamentInput {
+  userId: String!
+  medicamentId: String!
+  userMedicamentId: Int
+}
+
+"""The output of our create `UserMedicamentTime` mutation."""
+type CreateUserMedicamentTimePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UserMedicamentTime` that was created by this mutation."""
+  userMedicamentTime: UserMedicamentTime
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `UserMedicament` that is related to this `UserMedicamentTime`.
+  """
+  userMedicamentByUserMedicamentId: UserMedicament
+
+  """An edge for our `UserMedicamentTime`. May be used by Relay 1."""
+  userMedicamentTimeEdge(
+    """The method to use when ordering `UserMedicamentTime`."""
+    orderBy: [UserMedicamentTimesOrderBy!] = [NATURAL]
+  ): UserMedicamentTimesEdge
+}
+
+"""All input for the create `UserMedicamentTime` mutation."""
+input CreateUserMedicamentTimeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """The `UserMedicamentTime` to be created by this mutation."""
+  userMedicamentTime: UserMedicamentTimeInput!
+}
+
+"""An input for mutations affecting `UserMedicamentTime`"""
+input UserMedicamentTimeInput {
+  time: String
+  dosing: Int
+  userMedicamentId: Int!
+  monday: Boolean
+  tuesday: Boolean
+  wednesday: Boolean
+  thursday: Boolean
+  friday: Boolean
+  saturday: Boolean
+  sunday: Boolean
+}
+
+"""The output of our update `Admin` mutation."""
+type UpdateAdminPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Admin` that was updated by this mutation."""
+  admin: Admin
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Authorization` that is related to this `Admin`."""
+  authorizationByAuthorizationId: Authorization
+
+  """Reads a single `Ambulance` that is related to this `Admin`."""
+  ambulanceByAmbulanceId: Ambulance
+
+  """An edge for our `Admin`. May be used by Relay 1."""
+  adminEdge(
+    """The method to use when ordering `Admin`."""
+    orderBy: [AdminsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AdminsEdge
+}
+
+"""All input for the `updateAdmin` mutation."""
+input UpdateAdminInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Admin` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Admin` being updated.
+  """
+  adminPatch: AdminPatch!
+}
+
+"""
+Represents an update to a `Admin`. Fields that are set will be updated.
+"""
+input AdminPatch {
+  adminId: String
+  firstName: String
+  lastName: String
+  authorizationId: String
+  ambulanceId: String
+  adminVerified: Boolean
+  registrationDate: Date
+  email: String
+  phone: String
+  hashedPassword: String
+  lastLogin: Date
+}
+
+"""All input for the `updateAdminByAdminId` mutation."""
+input UpdateAdminByAdminIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Admin` being updated.
+  """
+  adminPatch: AdminPatch!
+  adminId: String!
+}
+
+"""The output of our update `Ambulance` mutation."""
+type UpdateAmbulancePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Ambulance` that was updated by this mutation."""
+  ambulance: Ambulance
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Ambulance`. May be used by Relay 1."""
+  ambulanceEdge(
+    """The method to use when ordering `Ambulance`."""
+    orderBy: [AmbulancesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AmbulancesEdge
+}
+
+"""All input for the `updateAmbulance` mutation."""
+input UpdateAmbulanceInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Ambulance` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Ambulance` being updated.
+  """
+  ambulancePatch: AmbulancePatch!
+}
+
+"""
+Represents an update to a `Ambulance`. Fields that are set will be updated.
+"""
+input AmbulancePatch {
+  ambulanceId: String
+  name: String
+  ico: String
+  city: String
+  street: String
+  state: String
+  suite: String
+}
+
+"""All input for the `updateAmbulanceByAmbulanceId` mutation."""
+input UpdateAmbulanceByAmbulanceIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Ambulance` being updated.
+  """
+  ambulancePatch: AmbulancePatch!
+  ambulanceId: String!
+}
+
+"""The output of our update `Authorization` mutation."""
+type UpdateAuthorizationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Authorization` that was updated by this mutation."""
+  authorization: Authorization
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Authorization`. May be used by Relay 1."""
+  authorizationEdge(
+    """The method to use when ordering `Authorization`."""
+    orderBy: [AuthorizationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AuthorizationsEdge
+}
+
+"""All input for the `updateAuthorization` mutation."""
+input UpdateAuthorizationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Authorization` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Authorization` being updated.
+  """
+  authorizationPatch: AuthorizationPatch!
+}
+
+"""
+Represents an update to a `Authorization`. Fields that are set will be updated.
+"""
+input AuthorizationPatch {
+  authorizationId: String
+  name: String
+  all: Boolean
+  prescription: Boolean
+}
+
+"""All input for the `updateAuthorizationByAuthorizationId` mutation."""
+input UpdateAuthorizationByAuthorizationIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Authorization` being updated.
+  """
+  authorizationPatch: AuthorizationPatch!
+  authorizationId: String!
+}
+
+"""The output of our update `BloodType` mutation."""
+type UpdateBloodTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `BloodType` that was updated by this mutation."""
+  bloodType: BloodType
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `BloodType`. May be used by Relay 1."""
+  bloodTypeEdge(
+    """The method to use when ordering `BloodType`."""
+    orderBy: [BloodTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): BloodTypesEdge
+}
+
+"""All input for the `updateBloodType` mutation."""
+input UpdateBloodTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `BloodType` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `BloodType` being updated.
+  """
+  bloodTypePatch: BloodTypePatch!
+}
+
+"""
+Represents an update to a `BloodType`. Fields that are set will be updated.
+"""
+input BloodTypePatch {
+  bloodTypeId: Int
+  name: String
+}
+
+"""All input for the `updateBloodTypeByBloodTypeId` mutation."""
+input UpdateBloodTypeByBloodTypeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `BloodType` being updated.
+  """
+  bloodTypePatch: BloodTypePatch!
+  bloodTypeId: Int!
+}
+
+"""The output of our update `Diagnosis` mutation."""
+type UpdateDiagnosisPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Diagnosis` that was updated by this mutation."""
+  diagnosis: Diagnosis
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `DiagnosisCategory` that is related to this `Diagnosis`.
+  """
+  diagnosisCategoryByDiagnosisCategoryId: DiagnosisCategory
+
+  """Reads a single `DiagnosisGroup` that is related to this `Diagnosis`."""
+  diagnosisGroupByDiagnosisGroupId: DiagnosisGroup
+
+  """An edge for our `Diagnosis`. May be used by Relay 1."""
+  diagnosisEdge(
+    """The method to use when ordering `Diagnosis`."""
+    orderBy: [DiagnosesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DiagnosesEdge
+}
+
+"""All input for the `updateDiagnosis` mutation."""
+input UpdateDiagnosisInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Diagnosis` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Diagnosis` being updated.
+  """
+  diagnosisPatch: DiagnosisPatch!
+}
+
+"""
+Represents an update to a `Diagnosis`. Fields that are set will be updated.
+"""
+input DiagnosisPatch {
+  diagnosisId: String
+  name: String
+  diagnosisCategoryId: String
+  diagnosisGroupId: String
+  description: String
+}
+
+"""All input for the `updateDiagnosisByDiagnosisId` mutation."""
+input UpdateDiagnosisByDiagnosisIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Diagnosis` being updated.
+  """
+  diagnosisPatch: DiagnosisPatch!
+  diagnosisId: String!
+}
+
+"""The output of our update `DiagnosisCategory` mutation."""
+type UpdateDiagnosisCategoryPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `DiagnosisCategory` that was updated by this mutation."""
+  diagnosisCategory: DiagnosisCategory
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `DiagnosisGroup` that is related to this `DiagnosisCategory`.
+  """
+  diagnosisGroupByDiagnosisGroupId: DiagnosisGroup
+
+  """An edge for our `DiagnosisCategory`. May be used by Relay 1."""
+  diagnosisCategoryEdge(
+    """The method to use when ordering `DiagnosisCategory`."""
+    orderBy: [DiagnosisCategoriesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DiagnosisCategoriesEdge
+}
+
+"""All input for the `updateDiagnosisCategory` mutation."""
+input UpdateDiagnosisCategoryInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DiagnosisCategory` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `DiagnosisCategory` being updated.
+  """
+  diagnosisCategoryPatch: DiagnosisCategoryPatch!
+}
+
+"""
+Represents an update to a `DiagnosisCategory`. Fields that are set will be updated.
+"""
+input DiagnosisCategoryPatch {
+  diagnosisCategoryId: String
+  name: String
+  diagnosisGroupId: String
+  description: String
+}
+
+"""
+All input for the `updateDiagnosisCategoryByDiagnosisCategoryId` mutation.
+"""
+input UpdateDiagnosisCategoryByDiagnosisCategoryIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `DiagnosisCategory` being updated.
+  """
+  diagnosisCategoryPatch: DiagnosisCategoryPatch!
+  diagnosisCategoryId: String!
+}
+
+"""The output of our update `DiagnosisGroup` mutation."""
+type UpdateDiagnosisGroupPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `DiagnosisGroup` that was updated by this mutation."""
+  diagnosisGroup: DiagnosisGroup
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `DiagnosisGroup`. May be used by Relay 1."""
+  diagnosisGroupEdge(
+    """The method to use when ordering `DiagnosisGroup`."""
+    orderBy: [DiagnosisGroupsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DiagnosisGroupsEdge
+}
+
+"""All input for the `updateDiagnosisGroup` mutation."""
+input UpdateDiagnosisGroupInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DiagnosisGroup` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `DiagnosisGroup` being updated.
+  """
+  diagnosisGroupPatch: DiagnosisGroupPatch!
+}
+
+"""
+Represents an update to a `DiagnosisGroup`. Fields that are set will be updated.
+"""
+input DiagnosisGroupPatch {
+  diagnosisGroupId: String
+  name: String
+  description: String
+}
+
+"""All input for the `updateDiagnosisGroupByDiagnosisGroupId` mutation."""
+input UpdateDiagnosisGroupByDiagnosisGroupIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `DiagnosisGroup` being updated.
+  """
+  diagnosisGroupPatch: DiagnosisGroupPatch!
+  diagnosisGroupId: String!
+}
+
+"""The output of our update `InsuranceCompany` mutation."""
+type UpdateInsuranceCompanyPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `InsuranceCompany` that was updated by this mutation."""
+  insuranceCompany: InsuranceCompany
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `InsuranceCompany`. May be used by Relay 1."""
+  insuranceCompanyEdge(
+    """The method to use when ordering `InsuranceCompany`."""
+    orderBy: [InsuranceCompaniesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): InsuranceCompaniesEdge
+}
+
+"""All input for the `updateInsuranceCompany` mutation."""
+input UpdateInsuranceCompanyInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `InsuranceCompany` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `InsuranceCompany` being updated.
+  """
+  insuranceCompanyPatch: InsuranceCompanyPatch!
+}
+
+"""
+Represents an update to a `InsuranceCompany`. Fields that are set will be updated.
+"""
+input InsuranceCompanyPatch {
+  insuranceCompanyId: Int
+  name: String
+}
+
+"""
+All input for the `updateInsuranceCompanyByInsuranceCompanyId` mutation.
+"""
+input UpdateInsuranceCompanyByInsuranceCompanyIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `InsuranceCompany` being updated.
+  """
+  insuranceCompanyPatch: InsuranceCompanyPatch!
+  insuranceCompanyId: Int!
+}
+
+"""The output of our update `Medicament` mutation."""
+type UpdateMedicamentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Medicament` that was updated by this mutation."""
+  medicament: Medicament
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Medicament`. May be used by Relay 1."""
+  medicamentEdge(
+    """The method to use when ordering `Medicament`."""
+    orderBy: [MedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MedicamentsEdge
+}
+
+"""All input for the `updateMedicament` mutation."""
+input UpdateMedicamentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Medicament` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Medicament` being updated.
+  """
+  medicamentPatch: MedicamentPatch!
+}
+
+"""
+Represents an update to a `Medicament`. Fields that are set will be updated.
+"""
+input MedicamentPatch {
+  medicamentId: String
+  title: String
+  supplement: String
+  strength: String
+  packaging: Int
+  holderCode: String
+  stateCode: String
+  atcCode: String
+  atcNameSk: String
+  indicationGroup: String
+  regNumber: String
+  expiration: String
+  dispensing: String
+  registrationType: String
+  regDate: String
+  validity: String
+  securityFeature: String
+}
+
+"""All input for the `updateMedicamentByMedicamentId` mutation."""
+input UpdateMedicamentByMedicamentIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Medicament` being updated.
+  """
+  medicamentPatch: MedicamentPatch!
+  medicamentId: String!
+}
+
+"""The output of our update `Meeting` mutation."""
+type UpdateMeetingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Meeting` that was updated by this mutation."""
+  meeting: Meeting
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `Meeting`."""
+  userByUserId: User
+
+  """Reads a single `Admin` that is related to this `Meeting`."""
+  adminByAdminId: Admin
+
+  """An edge for our `Meeting`. May be used by Relay 1."""
+  meetingEdge(
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MeetingsEdge
+}
+
+"""All input for the `updateMeeting` mutation."""
+input UpdateMeetingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Meeting` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `Meeting` being updated.
+  """
+  meetingPatch: MeetingPatch!
+}
+
+"""
+Represents an update to a `Meeting`. Fields that are set will be updated.
+"""
+input MeetingPatch {
+  meetingId: Int
+  meetingDate: Date
+  note: String
+  userId: String
+  adminId: String
+}
+
+"""All input for the `updateMeetingByMeetingId` mutation."""
+input UpdateMeetingByMeetingIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `Meeting` being updated.
+  """
+  meetingPatch: MeetingPatch!
+  meetingId: Int!
+}
+
+"""The output of our update `User` mutation."""
+type UpdateUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `User` that was updated by this mutation."""
+  user: User
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `InsuranceCompany` that is related to this `User`."""
+  insuranceCompanyByInsuranceCompanyId: InsuranceCompany
+
+  """Reads a single `BloodType` that is related to this `User`."""
+  bloodTypeByBloodTypeId: BloodType
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+"""All input for the `updateUser` mutation."""
+input UpdateUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `User` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `User` being updated.
+  """
+  userPatch: UserPatch!
+}
+
+"""Represents an update to a `User`. Fields that are set will be updated."""
+input UserPatch {
+  userId: String
+  foreName: String
+  surName: String
+  hashedIdentNumber: String
+  hashedInsuranceNumber: String
+  email: String
+  phone: String
+  birthdate: Date
+  verified: Boolean
+  insuranceCompanyId: Int
+  hashedPassword: String
+  lastLogin: Date
+  bloodTypeId: Int
+  rhD: Boolean
+}
+
+"""All input for the `updateUserByUserId` mutation."""
+input UpdateUserByUserIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `User` being updated.
+  """
+  userPatch: UserPatch!
+  userId: String!
+}
+
+"""The output of our update `UserMedicament` mutation."""
+type UpdateUserMedicamentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UserMedicament` that was updated by this mutation."""
+  userMedicament: UserMedicament
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserMedicament`."""
+  userByUserId: User
+
+  """Reads a single `Medicament` that is related to this `UserMedicament`."""
+  medicamentByMedicamentId: Medicament
+
+  """An edge for our `UserMedicament`. May be used by Relay 1."""
+  userMedicamentEdge(
+    """The method to use when ordering `UserMedicament`."""
+    orderBy: [UserMedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMedicamentsEdge
+}
+
+"""All input for the `updateUserMedicament` mutation."""
+input UpdateUserMedicamentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserMedicament` to be updated.
+  """
+  nodeId: ID!
+
+  """
+  An object where the defined keys will be set on the `UserMedicament` being updated.
+  """
+  userMedicamentPatch: UserMedicamentPatch!
+}
+
+"""
+Represents an update to a `UserMedicament`. Fields that are set will be updated.
+"""
+input UserMedicamentPatch {
+  userId: String
+  medicamentId: String
+  userMedicamentId: Int
+}
+
+"""All input for the `updateUserMedicamentByUserMedicamentId` mutation."""
+input UpdateUserMedicamentByUserMedicamentIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  An object where the defined keys will be set on the `UserMedicament` being updated.
+  """
+  userMedicamentPatch: UserMedicamentPatch!
+  userMedicamentId: Int!
+}
+
+"""The output of our delete `Admin` mutation."""
+type DeleteAdminPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Admin` that was deleted by this mutation."""
+  admin: Admin
+  deletedAdminId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `Authorization` that is related to this `Admin`."""
+  authorizationByAuthorizationId: Authorization
+
+  """Reads a single `Ambulance` that is related to this `Admin`."""
+  ambulanceByAmbulanceId: Ambulance
+
+  """An edge for our `Admin`. May be used by Relay 1."""
+  adminEdge(
+    """The method to use when ordering `Admin`."""
+    orderBy: [AdminsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AdminsEdge
+}
+
+"""All input for the `deleteAdmin` mutation."""
+input DeleteAdminInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Admin` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteAdminByAdminId` mutation."""
+input DeleteAdminByAdminIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  adminId: String!
+}
+
+"""The output of our delete `Ambulance` mutation."""
+type DeleteAmbulancePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Ambulance` that was deleted by this mutation."""
+  ambulance: Ambulance
+  deletedAmbulanceId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Ambulance`. May be used by Relay 1."""
+  ambulanceEdge(
+    """The method to use when ordering `Ambulance`."""
+    orderBy: [AmbulancesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AmbulancesEdge
+}
+
+"""All input for the `deleteAmbulance` mutation."""
+input DeleteAmbulanceInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Ambulance` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteAmbulanceByAmbulanceId` mutation."""
+input DeleteAmbulanceByAmbulanceIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  ambulanceId: String!
+}
+
+"""The output of our delete `Authorization` mutation."""
+type DeleteAuthorizationPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Authorization` that was deleted by this mutation."""
+  authorization: Authorization
+  deletedAuthorizationId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Authorization`. May be used by Relay 1."""
+  authorizationEdge(
+    """The method to use when ordering `Authorization`."""
+    orderBy: [AuthorizationsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): AuthorizationsEdge
+}
+
+"""All input for the `deleteAuthorization` mutation."""
+input DeleteAuthorizationInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Authorization` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteAuthorizationByAuthorizationId` mutation."""
+input DeleteAuthorizationByAuthorizationIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  authorizationId: String!
+}
+
+"""The output of our delete `BloodType` mutation."""
+type DeleteBloodTypePayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `BloodType` that was deleted by this mutation."""
+  bloodType: BloodType
+  deletedBloodTypeId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `BloodType`. May be used by Relay 1."""
+  bloodTypeEdge(
+    """The method to use when ordering `BloodType`."""
+    orderBy: [BloodTypesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): BloodTypesEdge
+}
+
+"""All input for the `deleteBloodType` mutation."""
+input DeleteBloodTypeInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `BloodType` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteBloodTypeByBloodTypeId` mutation."""
+input DeleteBloodTypeByBloodTypeIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  bloodTypeId: Int!
+}
+
+"""The output of our delete `Diagnosis` mutation."""
+type DeleteDiagnosisPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Diagnosis` that was deleted by this mutation."""
+  diagnosis: Diagnosis
+  deletedDiagnosisId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `DiagnosisCategory` that is related to this `Diagnosis`.
+  """
+  diagnosisCategoryByDiagnosisCategoryId: DiagnosisCategory
+
+  """Reads a single `DiagnosisGroup` that is related to this `Diagnosis`."""
+  diagnosisGroupByDiagnosisGroupId: DiagnosisGroup
+
+  """An edge for our `Diagnosis`. May be used by Relay 1."""
+  diagnosisEdge(
+    """The method to use when ordering `Diagnosis`."""
+    orderBy: [DiagnosesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DiagnosesEdge
+}
+
+"""All input for the `deleteDiagnosis` mutation."""
+input DeleteDiagnosisInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Diagnosis` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteDiagnosisByDiagnosisId` mutation."""
+input DeleteDiagnosisByDiagnosisIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  diagnosisId: String!
+}
+
+"""The output of our delete `DiagnosisCategory` mutation."""
+type DeleteDiagnosisCategoryPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `DiagnosisCategory` that was deleted by this mutation."""
+  diagnosisCategory: DiagnosisCategory
+  deletedDiagnosisCategoryId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """
+  Reads a single `DiagnosisGroup` that is related to this `DiagnosisCategory`.
+  """
+  diagnosisGroupByDiagnosisGroupId: DiagnosisGroup
+
+  """An edge for our `DiagnosisCategory`. May be used by Relay 1."""
+  diagnosisCategoryEdge(
+    """The method to use when ordering `DiagnosisCategory`."""
+    orderBy: [DiagnosisCategoriesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DiagnosisCategoriesEdge
+}
+
+"""All input for the `deleteDiagnosisCategory` mutation."""
+input DeleteDiagnosisCategoryInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DiagnosisCategory` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteDiagnosisCategoryByDiagnosisCategoryId` mutation.
+"""
+input DeleteDiagnosisCategoryByDiagnosisCategoryIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  diagnosisCategoryId: String!
+}
+
+"""The output of our delete `DiagnosisGroup` mutation."""
+type DeleteDiagnosisGroupPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `DiagnosisGroup` that was deleted by this mutation."""
+  diagnosisGroup: DiagnosisGroup
+  deletedDiagnosisGroupId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `DiagnosisGroup`. May be used by Relay 1."""
+  diagnosisGroupEdge(
+    """The method to use when ordering `DiagnosisGroup`."""
+    orderBy: [DiagnosisGroupsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): DiagnosisGroupsEdge
+}
+
+"""All input for the `deleteDiagnosisGroup` mutation."""
+input DeleteDiagnosisGroupInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `DiagnosisGroup` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteDiagnosisGroupByDiagnosisGroupId` mutation."""
+input DeleteDiagnosisGroupByDiagnosisGroupIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  diagnosisGroupId: String!
+}
+
+"""The output of our delete `InsuranceCompany` mutation."""
+type DeleteInsuranceCompanyPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `InsuranceCompany` that was deleted by this mutation."""
+  insuranceCompany: InsuranceCompany
+  deletedInsuranceCompanyId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `InsuranceCompany`. May be used by Relay 1."""
+  insuranceCompanyEdge(
+    """The method to use when ordering `InsuranceCompany`."""
+    orderBy: [InsuranceCompaniesOrderBy!] = [PRIMARY_KEY_ASC]
+  ): InsuranceCompaniesEdge
+}
+
+"""All input for the `deleteInsuranceCompany` mutation."""
+input DeleteInsuranceCompanyInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `InsuranceCompany` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""
+All input for the `deleteInsuranceCompanyByInsuranceCompanyId` mutation.
+"""
+input DeleteInsuranceCompanyByInsuranceCompanyIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  insuranceCompanyId: Int!
+}
+
+"""The output of our delete `Medicament` mutation."""
+type DeleteMedicamentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Medicament` that was deleted by this mutation."""
+  medicament: Medicament
+  deletedMedicamentId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """An edge for our `Medicament`. May be used by Relay 1."""
+  medicamentEdge(
+    """The method to use when ordering `Medicament`."""
+    orderBy: [MedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MedicamentsEdge
+}
+
+"""All input for the `deleteMedicament` mutation."""
+input DeleteMedicamentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Medicament` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteMedicamentByMedicamentId` mutation."""
+input DeleteMedicamentByMedicamentIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  medicamentId: String!
+}
+
+"""The output of our delete `Meeting` mutation."""
+type DeleteMeetingPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `Meeting` that was deleted by this mutation."""
+  meeting: Meeting
+  deletedMeetingId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `Meeting`."""
+  userByUserId: User
+
+  """Reads a single `Admin` that is related to this `Meeting`."""
+  adminByAdminId: Admin
+
+  """An edge for our `Meeting`. May be used by Relay 1."""
+  meetingEdge(
+    """The method to use when ordering `Meeting`."""
+    orderBy: [MeetingsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): MeetingsEdge
+}
+
+"""All input for the `deleteMeeting` mutation."""
+input DeleteMeetingInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `Meeting` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteMeetingByMeetingId` mutation."""
+input DeleteMeetingByMeetingIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  meetingId: Int!
+}
+
+"""The output of our delete `User` mutation."""
+type DeleteUserPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `User` that was deleted by this mutation."""
+  user: User
+  deletedUserId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `InsuranceCompany` that is related to this `User`."""
+  insuranceCompanyByInsuranceCompanyId: InsuranceCompany
+
+  """Reads a single `BloodType` that is related to this `User`."""
+  bloodTypeByBloodTypeId: BloodType
+
+  """An edge for our `User`. May be used by Relay 1."""
+  userEdge(
+    """The method to use when ordering `User`."""
+    orderBy: [UsersOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UsersEdge
+}
+
+"""All input for the `deleteUser` mutation."""
+input DeleteUserInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `User` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteUserByUserId` mutation."""
+input DeleteUserByUserIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  userId: String!
+}
+
+"""The output of our delete `UserMedicament` mutation."""
+type DeleteUserMedicamentPayload {
+  """
+  The exact same `clientMutationId` that was provided in the mutation input,
+  unchanged and unused. May be used by a client to track mutations.
+  """
+  clientMutationId: String
+
+  """The `UserMedicament` that was deleted by this mutation."""
+  userMedicament: UserMedicament
+  deletedUserMedicamentId: ID
+
+  """
+  Our root query field type. Allows us to run any query from our mutation payload.
+  """
+  query: Query
+
+  """Reads a single `User` that is related to this `UserMedicament`."""
+  userByUserId: User
+
+  """Reads a single `Medicament` that is related to this `UserMedicament`."""
+  medicamentByMedicamentId: Medicament
+
+  """An edge for our `UserMedicament`. May be used by Relay 1."""
+  userMedicamentEdge(
+    """The method to use when ordering `UserMedicament`."""
+    orderBy: [UserMedicamentsOrderBy!] = [PRIMARY_KEY_ASC]
+  ): UserMedicamentsEdge
+}
+
+"""All input for the `deleteUserMedicament` mutation."""
+input DeleteUserMedicamentInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+
+  """
+  The globally unique `ID` which will identify a single `UserMedicament` to be deleted.
+  """
+  nodeId: ID!
+}
+
+"""All input for the `deleteUserMedicamentByUserMedicamentId` mutation."""
+input DeleteUserMedicamentByUserMedicamentIdInput {
+  """
+  An arbitrary string value with no semantic meaning. Will be included in the
+  payload verbatim. May be used to track mutations by the client.
+  """
+  clientMutationId: String
+  userMedicamentId: Int!
+}
