@@ -2,8 +2,9 @@ import dotenv from "dotenv";
 import pg from "pg";
 import express from "express";
 import ConnectionFilterPlugin from "postgraphile-plugin-connection-filter";
-import { postgraphile } from "postgraphile";
-
+import {postgraphile} from "postgraphile";
+import PgSimplifyInflectorPlugin from '@graphile-contrib/pg-simplify-inflector'
+import PgManyToManyPlugin from "@graphile-contrib/pg-many-to-many";
 dotenv.config();
 
 const app = express();
@@ -11,18 +12,9 @@ const app = express();
 const pgPool = new pg.Pool({
     user: process.env.PG_USER,
     database:  process.env.DATABASE,
-    password:  process.env.PASSWORD,
+    password: process.env.PASSWORD,
     host:  process.env.HOST,
     port:  process.env.PG_PORT,
-});
-
-const middleware = postgraphile(pgPool, "emedi", {
-    appendPlugins: [ConnectionFilterPlugin],
-    graphiql: true,
-    enhanceGraphiql: true,
-    dynamicJson: true,
-    exportJsonSchemaPath:"schema.json",
-    exportGqlSchemaPath: "schema.graphql",
 });
 
 app.use(function(req, res, next) {
@@ -31,9 +23,22 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.use(middleware);
+app.use(postgraphile(pgPool, "emedi", {
+    appendPlugins: [PgManyToManyPlugin,ConnectionFilterPlugin,PgSimplifyInflectorPlugin],
+    enhanceGraphiql: true,
+    graphiql:true,
+    dynamicJson: true,
+    exportJsonSchemaPath:"schema.json",
+    exportGqlSchemaPath: "schema.graphql",
+    pgDefaultRole:'privilegeadmin',
+    jwtSecret:'alphabet',
+    jwtPgTypeIdentifier:'emedi.jwt',
+}));
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT,()=>{
+    console.log(`Server listening on port http://localhost:${process.env.PORT}/graphiql`)
+});
+
 
 
 
